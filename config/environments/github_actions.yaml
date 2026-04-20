@@ -1,0 +1,11 @@
+{
+  "environment": {
+    "name": "github_actions"
+  },
+  "runtime": {
+    "fail_on_validation_errors": true
+  },
+  "artifacts": {
+    "execution_context": "ci"
+  }
+}

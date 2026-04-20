@@ -1,0 +1,743 @@
+{
+  "records": [
+    {
+      "entity_id": "pkt_avrp_20250918_2c616c061bd44e79",
+      "payload": {
+        "artifact_refs": [],
+        "as_of_date": "2025-09-18",
+        "details": {
+          "scanner_label": "detected:avwap_reclaim"
+        },
+        "event_type": "detected",
+        "lifecycle_event_id": "life_bb8cb0b7df528d87",
+        "packet_id": "pkt_avrp_20250918_2c616c061bd44e79",
+        "run_id": "run_local_20250918_3e3337a6d2837850",
+        "setup_family": "avwap_reclaim",
+        "symbol": "AVRP"
+      },
+      "record_type": "lifecycle",
+      "recorded_at": "2025-09-18T21:15:00Z",
+      "sequence": 1
+    },
+    {
+      "entity_id": "pkt_avrp_20250918_2c616c061bd44e79",
+      "payload": {
+        "artifact_refs": [],
+        "as_of_date": "2025-09-18",
+        "details": {
+          "schema_version": "v1.0.0"
+        },
+        "event_type": "packet_built",
+        "lifecycle_event_id": "life_f0e9e7859bb0961e",
+        "packet_id": "pkt_avrp_20250918_2c616c061bd44e79",
+        "run_id": "run_local_20250918_3e3337a6d2837850",
+        "setup_family": "avwap_reclaim",
+        "symbol": "AVRP"
+      },
+      "record_type": "lifecycle",
+      "recorded_at": "2025-09-18T21:15:00Z",
+      "sequence": 2
+    },
+    {
+      "entity_id": "pkt_avrp_20250918_2c616c061bd44e79",
+      "payload": {
+        "artifact_refs": [],
+        "as_of_date": "2025-09-18",
+        "details": {
+          "disqualification_reasons": [],
+          "primary_family": "avwap_reclaim",
+          "secondary_tags": []
+        },
+        "event_type": "classified",
+        "lifecycle_event_id": "life_a081e7fce5effde7",
+        "packet_id": "pkt_avrp_20250918_2c616c061bd44e79",
+        "run_id": "run_local_20250918_3e3337a6d2837850",
+        "setup_family": "avwap_reclaim",
+        "symbol": "AVRP"
+      },
+      "record_type": "lifecycle",
+      "recorded_at": "2025-09-18T21:15:00Z",
+      "sequence": 3
+    },
+    {
+      "entity_id": "pkt_avrp_20250918_2c616c061bd44e79",
+      "payload": {
+        "artifact_refs": [],
+        "as_of_date": "2025-09-18",
+        "details": {
+          "eligibility_status": "warning_only"
+        },
+        "event_type": "warning_only",
+        "lifecycle_event_id": "life_86182c425af98802",
+        "packet_id": "pkt_avrp_20250918_2c616c061bd44e79",
+        "run_id": "run_local_20250918_3e3337a6d2837850",
+        "setup_family": "avwap_reclaim",
+        "symbol": "AVRP"
+      },
+      "record_type": "lifecycle",
+      "recorded_at": "2025-09-18T21:15:00Z",
+      "sequence": 4
+    },
+    {
+      "entity_id": "pkt_avrp_20250918_2c616c061bd44e79",
+      "payload": {
+        "artifact_refs": [],
+        "as_of_date": "2025-09-18",
+        "details": {
+          "review_queue_position": 2
+        },
+        "event_type": "selected_for_review",
+        "lifecycle_event_id": "life_ab2142445934a540",
+        "packet_id": "pkt_avrp_20250918_2c616c061bd44e79",
+        "run_id": "run_local_20250918_3e3337a6d2837850",
+        "setup_family": "avwap_reclaim",
+        "symbol": "AVRP"
+      },
+      "record_type": "lifecycle",
+      "recorded_at": "2025-09-18T21:15:00Z",
+      "sequence": 5
+    },
+    {
+      "entity_id": "pkt_base_20250918_c5e29def4b368fa2",
+      "payload": {
+        "artifact_refs": [],
+        "as_of_date": "2025-09-18",
+        "details": {
+          "scanner_label": "detected:base_breakout"
+        },
+        "event_type": "detected",
+        "lifecycle_event_id": "life_c2ef5de727123077",
+        "packet_id": "pkt_base_20250918_c5e29def4b368fa2",
+        "run_id": "run_local_20250918_3e3337a6d2837850",
+        "setup_family": "base_breakout",
+        "symbol": "BASE"
+      },
+      "record_type": "lifecycle",
+      "recorded_at": "2025-09-18T21:15:00Z",
+      "sequence": 6
+    },
+    {
+      "entity_id": "pkt_base_20250918_c5e29def4b368fa2",
+      "payload": {
+        "artifact_refs": [],
+        "as_of_date": "2025-09-18",
+        "details": {
+          "schema_version": "v1.0.0"
+        },
+        "event_type": "packet_built",
+        "lifecycle_event_id": "life_f02419667ec26b30",
+        "packet_id": "pkt_base_20250918_c5e29def4b368fa2",
+        "run_id": "run_local_20250918_3e3337a6d2837850",
+        "setup_family": "base_breakout",
+        "symbol": "BASE"
+      },
+      "record_type": "lifecycle",
+      "recorded_at": "2025-09-18T21:15:00Z",
+      "sequence": 7
+    },
+    {
+      "entity_id": "pkt_base_20250918_c5e29def4b368fa2",
+      "payload": {
+        "artifact_refs": [],
+        "as_of_date": "2025-09-18",
+        "details": {
+          "disqualification_reasons": [],
+          "primary_family": "base_breakout",
+          "secondary_tags": []
+        },
+        "event_type": "classified",
+        "lifecycle_event_id": "life_eeeb1fc60c03b761",
+        "packet_id": "pkt_base_20250918_c5e29def4b368fa2",
+        "run_id": "run_local_20250918_3e3337a6d2837850",
+        "setup_family": "base_breakout",
+        "symbol": "BASE"
+      },
+      "record_type": "lifecycle",
+      "recorded_at": "2025-09-18T21:15:00Z",
+      "sequence": 8
+    },
+    {
+      "entity_id": "pkt_base_20250918_c5e29def4b368fa2",
+      "payload": {
+        "artifact_refs": [],
+        "as_of_date": "2025-09-18",
+        "details": {
+          "eligibility_status": "warning_only"
+        },
+        "event_type": "warning_only",
+        "lifecycle_event_id": "life_e5fe7e7b4ea4fe8f",
+        "packet_id": "pkt_base_20250918_c5e29def4b368fa2",
+        "run_id": "run_local_20250918_3e3337a6d2837850",
+        "setup_family": "base_breakout",
+        "symbol": "BASE"
+      },
+      "record_type": "lifecycle",
+      "recorded_at": "2025-09-18T21:15:00Z",
+      "sequence": 9
+    },
+    {
+      "entity_id": "pkt_base_20250918_c5e29def4b368fa2",
+      "payload": {
+        "artifact_refs": [],
+        "as_of_date": "2025-09-18",
+        "details": {
+          "review_queue_position": 1
+        },
+        "event_type": "selected_for_review",
+        "lifecycle_event_id": "life_1f46f88c1e628251",
+        "packet_id": "pkt_base_20250918_c5e29def4b368fa2",
+        "run_id": "run_local_20250918_3e3337a6d2837850",
+        "setup_family": "base_breakout",
+        "symbol": "BASE"
+      },
+      "record_type": "lifecycle",
+      "recorded_at": "2025-09-18T21:15:00Z",
+      "sequence": 10
+    },
+    {
+      "entity_id": "pkt_cnfl_20250918_621011937a1a6dc9",
+      "payload": {
+        "artifact_refs": [],
+        "as_of_date": "2025-09-18",
+        "details": {
+          "scanner_label": "detected:avwap_reclaim"
+        },
+        "event_type": "detected",
+        "lifecycle_event_id": "life_45baf23617ae31eb",
+        "packet_id": "pkt_cnfl_20250918_621011937a1a6dc9",
+        "run_id": "run_local_20250918_3e3337a6d2837850",
+        "setup_family": "avwap_reclaim",
+        "symbol": "CNFL"
+      },
+      "record_type": "lifecycle",
+      "recorded_at": "2025-09-18T21:15:00Z",
+      "sequence": 11
+    },
+    {
+      "entity_id": "pkt_cnfl_20250918_621011937a1a6dc9",
+      "payload": {
+        "artifact_refs": [],
+        "as_of_date": "2025-09-18",
+        "details": {
+          "schema_version": "v1.0.0"
+        },
+        "event_type": "packet_built",
+        "lifecycle_event_id": "life_02b08dbe123e3aac",
+        "packet_id": "pkt_cnfl_20250918_621011937a1a6dc9",
+        "run_id": "run_local_20250918_3e3337a6d2837850",
+        "setup_family": "avwap_reclaim",
+        "symbol": "CNFL"
+      },
+      "record_type": "lifecycle",
+      "recorded_at": "2025-09-18T21:15:00Z",
+      "sequence": 12
+    },
+    {
+      "entity_id": "pkt_cnfl_20250918_621011937a1a6dc9",
+      "payload": {
+        "artifact_refs": [],
+        "as_of_date": "2025-09-18",
+        "details": {
+          "disqualification_reasons": [
+            "avwap_reclaim:demoted_by_family_priority_order"
+          ],
+          "primary_family": "base_breakout",
+          "secondary_tags": [
+            "multi_family_overlap",
+            "avwap_reclaim"
+          ]
+        },
+        "event_type": "classified",
+        "lifecycle_event_id": "life_8096f6deaaf46942",
+        "packet_id": "pkt_cnfl_20250918_621011937a1a6dc9",
+        "run_id": "run_local_20250918_3e3337a6d2837850",
+        "setup_family": "avwap_reclaim",
+        "symbol": "CNFL"
+      },
+      "record_type": "lifecycle",
+      "recorded_at": "2025-09-18T21:15:00Z",
+      "sequence": 13
+    },
+    {
+      "entity_id": "pkt_cnfl_20250918_621011937a1a6dc9",
+      "payload": {
+        "artifact_refs": [],
+        "as_of_date": "2025-09-18",
+        "details": {
+          "eligibility_status": "ineligible"
+        },
+        "event_type": "ineligible",
+        "lifecycle_event_id": "life_76deeeec958333eb",
+        "packet_id": "pkt_cnfl_20250918_621011937a1a6dc9",
+        "run_id": "run_local_20250918_3e3337a6d2837850",
+        "setup_family": "avwap_reclaim",
+        "symbol": "CNFL"
+      },
+      "record_type": "lifecycle",
+      "recorded_at": "2025-09-18T21:15:00Z",
+      "sequence": 14
+    },
+    {
+      "entity_id": "pkt_cnfl_20250918_1affa3696e4c4b8f",
+      "payload": {
+        "artifact_refs": [],
+        "as_of_date": "2025-09-18",
+        "details": {
+          "scanner_label": "detected:base_breakout"
+        },
+        "event_type": "detected",
+        "lifecycle_event_id": "life_60d3e65f7a3c6897",
+        "packet_id": "pkt_cnfl_20250918_1affa3696e4c4b8f",
+        "run_id": "run_local_20250918_3e3337a6d2837850",
+        "setup_family": "base_breakout",
+        "symbol": "CNFL"
+      },
+      "record_type": "lifecycle",
+      "recorded_at": "2025-09-18T21:15:00Z",
+      "sequence": 15
+    },
+    {
+      "entity_id": "pkt_cnfl_20250918_1affa3696e4c4b8f",
+      "payload": {
+        "artifact_refs": [],
+        "as_of_date": "2025-09-18",
+        "details": {
+          "schema_version": "v1.0.0"
+        },
+        "event_type": "packet_built",
+        "lifecycle_event_id": "life_7e0700b575f95916",
+        "packet_id": "pkt_cnfl_20250918_1affa3696e4c4b8f",
+        "run_id": "run_local_20250918_3e3337a6d2837850",
+        "setup_family": "base_breakout",
+        "symbol": "CNFL"
+      },
+      "record_type": "lifecycle",
+      "recorded_at": "2025-09-18T21:15:00Z",
+      "sequence": 16
+    },
+    {
+      "entity_id": "pkt_cnfl_20250918_1affa3696e4c4b8f",
+      "payload": {
+        "artifact_refs": [],
+        "as_of_date": "2025-09-18",
+        "details": {
+          "disqualification_reasons": [
+            "avwap_reclaim:demoted_by_family_priority_order"
+          ],
+          "primary_family": "base_breakout",
+          "secondary_tags": [
+            "multi_family_overlap",
+            "avwap_reclaim"
+          ]
+        },
+        "event_type": "classified",
+        "lifecycle_event_id": "life_bab11f3b94005550",
+        "packet_id": "pkt_cnfl_20250918_1affa3696e4c4b8f",
+        "run_id": "run_local_20250918_3e3337a6d2837850",
+        "setup_family": "base_breakout",
+        "symbol": "CNFL"
+      },
+      "record_type": "lifecycle",
+      "recorded_at": "2025-09-18T21:15:00Z",
+      "sequence": 17
+    },
+    {
+      "entity_id": "pkt_cnfl_20250918_1affa3696e4c4b8f",
+      "payload": {
+        "artifact_refs": [],
+        "as_of_date": "2025-09-18",
+        "details": {
+          "eligibility_status": "warning_only"
+        },
+        "event_type": "warning_only",
+        "lifecycle_event_id": "life_7f3c9a6cfdab8228",
+        "packet_id": "pkt_cnfl_20250918_1affa3696e4c4b8f",
+        "run_id": "run_local_20250918_3e3337a6d2837850",
+        "setup_family": "base_breakout",
+        "symbol": "CNFL"
+      },
+      "record_type": "lifecycle",
+      "recorded_at": "2025-09-18T21:15:00Z",
+      "sequence": 18
+    },
+    {
+      "entity_id": "pkt_cnfl_20250918_1affa3696e4c4b8f",
+      "payload": {
+        "artifact_refs": [],
+        "as_of_date": "2025-09-18",
+        "details": {
+          "review_queue_position": 3
+        },
+        "event_type": "selected_for_review",
+        "lifecycle_event_id": "life_3893ce8b42eded70",
+        "packet_id": "pkt_cnfl_20250918_1affa3696e4c4b8f",
+        "run_id": "run_local_20250918_3e3337a6d2837850",
+        "setup_family": "base_breakout",
+        "symbol": "CNFL"
+      },
+      "record_type": "lifecycle",
+      "recorded_at": "2025-09-18T21:15:00Z",
+      "sequence": 19
+    },
+    {
+      "entity_id": "pkt_splt_20250918_61239626aa15c622",
+      "payload": {
+        "artifact_refs": [],
+        "as_of_date": "2025-09-18",
+        "details": {
+          "scanner_label": "detected:trend_pullback"
+        },
+        "event_type": "detected",
+        "lifecycle_event_id": "life_0e447b239daf0842",
+        "packet_id": "pkt_splt_20250918_61239626aa15c622",
+        "run_id": "run_local_20250918_3e3337a6d2837850",
+        "setup_family": "trend_pullback",
+        "symbol": "SPLT"
+      },
+      "record_type": "lifecycle",
+      "recorded_at": "2025-09-18T21:15:00Z",
+      "sequence": 20
+    },
+    {
+      "entity_id": "pkt_splt_20250918_61239626aa15c622",
+      "payload": {
+        "artifact_refs": [],
+        "as_of_date": "2025-09-18",
+        "details": {
+          "schema_version": "v1.0.0"
+        },
+        "event_type": "packet_built",
+        "lifecycle_event_id": "life_b54ce0ff5b60ec42",
+        "packet_id": "pkt_splt_20250918_61239626aa15c622",
+        "run_id": "run_local_20250918_3e3337a6d2837850",
+        "setup_family": "trend_pullback",
+        "symbol": "SPLT"
+      },
+      "record_type": "lifecycle",
+      "recorded_at": "2025-09-18T21:15:00Z",
+      "sequence": 21
+    },
+    {
+      "entity_id": "pkt_splt_20250918_61239626aa15c622",
+      "payload": {
+        "artifact_refs": [],
+        "as_of_date": "2025-09-18",
+        "details": {
+          "disqualification_reasons": [],
+          "primary_family": "trend_pullback",
+          "secondary_tags": []
+        },
+        "event_type": "classified",
+        "lifecycle_event_id": "life_0f722bd53ddfcf2f",
+        "packet_id": "pkt_splt_20250918_61239626aa15c622",
+        "run_id": "run_local_20250918_3e3337a6d2837850",
+        "setup_family": "trend_pullback",
+        "symbol": "SPLT"
+      },
+      "record_type": "lifecycle",
+      "recorded_at": "2025-09-18T21:15:00Z",
+      "sequence": 22
+    },
+    {
+      "entity_id": "pkt_splt_20250918_61239626aa15c622",
+      "payload": {
+        "artifact_refs": [],
+        "as_of_date": "2025-09-18",
+        "details": {
+          "eligibility_status": "ineligible"
+        },
+        "event_type": "ineligible",
+        "lifecycle_event_id": "life_6a04790a1b401841",
+        "packet_id": "pkt_splt_20250918_61239626aa15c622",
+        "run_id": "run_local_20250918_3e3337a6d2837850",
+        "setup_family": "trend_pullback",
+        "symbol": "SPLT"
+      },
+      "record_type": "lifecycle",
+      "recorded_at": "2025-09-18T21:15:00Z",
+      "sequence": 23
+    },
+    {
+      "entity_id": "pkt_stal_20250918_7dae26353a71fda8",
+      "payload": {
+        "artifact_refs": [],
+        "as_of_date": "2025-09-18",
+        "details": {
+          "scanner_label": "detected:trend_pullback"
+        },
+        "event_type": "detected",
+        "lifecycle_event_id": "life_4df088ca2c4bd2b8",
+        "packet_id": "pkt_stal_20250918_7dae26353a71fda8",
+        "run_id": "run_local_20250918_3e3337a6d2837850",
+        "setup_family": "trend_pullback",
+        "symbol": "STAL"
+      },
+      "record_type": "lifecycle",
+      "recorded_at": "2025-09-18T21:15:00Z",
+      "sequence": 24
+    },
+    {
+      "entity_id": "pkt_stal_20250918_7dae26353a71fda8",
+      "payload": {
+        "artifact_refs": [],
+        "as_of_date": "2025-09-18",
+        "details": {
+          "schema_version": "v1.0.0"
+        },
+        "event_type": "packet_built",
+        "lifecycle_event_id": "life_7e870f8a4916102c",
+        "packet_id": "pkt_stal_20250918_7dae26353a71fda8",
+        "run_id": "run_local_20250918_3e3337a6d2837850",
+        "setup_family": "trend_pullback",
+        "symbol": "STAL"
+      },
+      "record_type": "lifecycle",
+      "recorded_at": "2025-09-18T21:15:00Z",
+      "sequence": 25
+    },
+    {
+      "entity_id": "pkt_stal_20250918_7dae26353a71fda8",
+      "payload": {
+        "artifact_refs": [],
+        "as_of_date": "2025-09-18",
+        "details": {
+          "disqualification_reasons": [],
+          "primary_family": "trend_pullback",
+          "secondary_tags": []
+        },
+        "event_type": "classified",
+        "lifecycle_event_id": "life_115c9842b12d72f6",
+        "packet_id": "pkt_stal_20250918_7dae26353a71fda8",
+        "run_id": "run_local_20250918_3e3337a6d2837850",
+        "setup_family": "trend_pullback",
+        "symbol": "STAL"
+      },
+      "record_type": "lifecycle",
+      "recorded_at": "2025-09-18T21:15:00Z",
+      "sequence": 26
+    },
+    {
+      "entity_id": "pkt_stal_20250918_7dae26353a71fda8",
+      "payload": {
+        "artifact_refs": [],
+        "as_of_date": "2025-09-18",
+        "details": {
+          "eligibility_status": "ineligible"
+        },
+        "event_type": "ineligible",
+        "lifecycle_event_id": "life_6c164bfd39b31be4",
+        "packet_id": "pkt_stal_20250918_7dae26353a71fda8",
+        "run_id": "run_local_20250918_3e3337a6d2837850",
+        "setup_family": "trend_pullback",
+        "symbol": "STAL"
+      },
+      "record_type": "lifecycle",
+      "recorded_at": "2025-09-18T21:15:00Z",
+      "sequence": 27
+    },
+    {
+      "entity_id": "pkt_trnd_20250918_02f95006ab180059",
+      "payload": {
+        "artifact_refs": [],
+        "as_of_date": "2025-09-18",
+        "details": {
+          "scanner_label": "detected:trend_pullback"
+        },
+        "event_type": "detected",
+        "lifecycle_event_id": "life_c653d2a423022c7b",
+        "packet_id": "pkt_trnd_20250918_02f95006ab180059",
+        "run_id": "run_local_20250918_3e3337a6d2837850",
+        "setup_family": "trend_pullback",
+        "symbol": "TRND"
+      },
+      "record_type": "lifecycle",
+      "recorded_at": "2025-09-18T21:15:00Z",
+      "sequence": 28
+    },
+    {
+      "entity_id": "pkt_trnd_20250918_02f95006ab180059",
+      "payload": {
+        "artifact_refs": [],
+        "as_of_date": "2025-09-18",
+        "details": {
+          "schema_version": "v1.0.0"
+        },
+        "event_type": "packet_built",
+        "lifecycle_event_id": "life_9d02a5e2386ed3be",
+        "packet_id": "pkt_trnd_20250918_02f95006ab180059",
+        "run_id": "run_local_20250918_3e3337a6d2837850",
+        "setup_family": "trend_pullback",
+        "symbol": "TRND"
+      },
+      "record_type": "lifecycle",
+      "recorded_at": "2025-09-18T21:15:00Z",
+      "sequence": 29
+    },
+    {
+      "entity_id": "pkt_trnd_20250918_02f95006ab180059",
+      "payload": {
+        "artifact_refs": [],
+        "as_of_date": "2025-09-18",
+        "details": {
+          "disqualification_reasons": [],
+          "primary_family": "trend_pullback",
+          "secondary_tags": []
+        },
+        "event_type": "classified",
+        "lifecycle_event_id": "life_5b04c04c3687e9f4",
+        "packet_id": "pkt_trnd_20250918_02f95006ab180059",
+        "run_id": "run_local_20250918_3e3337a6d2837850",
+        "setup_family": "trend_pullback",
+        "symbol": "TRND"
+      },
+      "record_type": "lifecycle",
+      "recorded_at": "2025-09-18T21:15:00Z",
+      "sequence": 30
+    },
+    {
+      "entity_id": "pkt_trnd_20250918_02f95006ab180059",
+      "payload": {
+        "artifact_refs": [],
+        "as_of_date": "2025-09-18",
+        "details": {
+          "eligibility_status": "ineligible"
+        },
+        "event_type": "ineligible",
+        "lifecycle_event_id": "life_4aa55f1adbd22ca4",
+        "packet_id": "pkt_trnd_20250918_02f95006ab180059",
+        "run_id": "run_local_20250918_3e3337a6d2837850",
+        "setup_family": "trend_pullback",
+        "symbol": "TRND"
+      },
+      "record_type": "lifecycle",
+      "recorded_at": "2025-09-18T21:15:00Z",
+      "sequence": 31
+    },
+    {
+      "entity_id": "pkt_trnd_20250918_02f95006ab180059",
+      "payload": {
+        "artifact_type": "decision_event",
+        "as_of_date": "2025-09-18",
+        "decision": {
+          "action": "plan_trade",
+          "rationale": "Fixture regression tracking coverage",
+          "tags": [
+            "golden",
+            "manual"
+          ]
+        },
+        "decision_event_id": "dec_trnd_20250918_02f95006ab180059_1f664ed4e137eeb0",
+        "environment": "local",
+        "packet_id": "pkt_trnd_20250918_02f95006ab180059",
+        "recorded_at": "2025-09-18T21:30:00Z",
+        "run_id": "run_local_20250918_3e3337a6d2837850",
+        "schema_version": "v1.0.0"
+      },
+      "record_type": "decision",
+      "recorded_at": "2025-09-18T21:30:00Z",
+      "sequence": 32
+    },
+    {
+      "entity_id": "pkt_trnd_20250918_02f95006ab180059",
+      "payload": {
+        "artifact_refs": [],
+        "as_of_date": "2025-09-18",
+        "details": {
+          "action": "plan_trade",
+          "decision_event_id": "dec_trnd_20250918_02f95006ab180059_1f664ed4e137eeb0"
+        },
+        "event_type": "entered_manual",
+        "lifecycle_event_id": "life_b8ba0c8dc9101122",
+        "packet_id": "pkt_trnd_20250918_02f95006ab180059",
+        "run_id": "run_local_20250918_3e3337a6d2837850",
+        "setup_family": "trend_pullback",
+        "symbol": "TRND"
+      },
+      "record_type": "lifecycle",
+      "recorded_at": "2025-09-18T21:30:00Z",
+      "sequence": 33
+    },
+    {
+      "entity_id": "pkt_trnd_20250918_02f95006ab180059",
+      "payload": {
+        "artifact_type": "outcome_record",
+        "decision_event_id": "dec_trnd_20250918_02f95006ab180059_1f664ed4e137eeb0",
+        "horizon": "t_plus_5",
+        "metrics": {
+          "max_drawdown_pct": -0.03678929765886288,
+          "notes": "mfe_pct=0.043478260869565216; mae_pct=-0.03678929765886288; time_to_invalidated=14; time_to_new_high=1",
+          "return_pct": 0.016722408026755852
+        },
+        "outcome_record_id": "out_trnd_20250918_02f95006ab180059_483b4b199e3d51f0",
+        "packet_id": "pkt_trnd_20250918_02f95006ab180059",
+        "recorded_at": "2025-09-18T21:15:00Z",
+        "schema_version": "v1.0.0",
+        "status": "complete"
+      },
+      "record_type": "outcome",
+      "recorded_at": "2025-09-18T21:15:00Z",
+      "sequence": 34
+    },
+    {
+      "entity_id": "pkt_trnd_20250918_02f95006ab180059",
+      "payload": {
+        "artifact_type": "outcome_record",
+        "decision_event_id": "dec_trnd_20250918_02f95006ab180059_1f664ed4e137eeb0",
+        "horizon": "t_plus_10",
+        "metrics": {
+          "max_drawdown_pct": -0.03678929765886288,
+          "notes": "mfe_pct=0.043478260869565216; mae_pct=-0.03678929765886288; time_to_invalidated=14; time_to_new_high=1",
+          "return_pct": 0.033444816053511704
+        },
+        "outcome_record_id": "out_trnd_20250918_02f95006ab180059_cd372133771774c9",
+        "packet_id": "pkt_trnd_20250918_02f95006ab180059",
+        "recorded_at": "2025-09-18T21:15:00Z",
+        "schema_version": "v1.0.0",
+        "status": "complete"
+      },
+      "record_type": "outcome",
+      "recorded_at": "2025-09-18T21:15:00Z",
+      "sequence": 35
+    },
+    {
+      "entity_id": "pkt_trnd_20250918_02f95006ab180059",
+      "payload": {
+        "artifact_type": "outcome_record",
+        "decision_event_id": "dec_trnd_20250918_02f95006ab180059_1f664ed4e137eeb0",
+        "horizon": "t_plus_20",
+        "metrics": {
+          "max_drawdown_pct": -0.03678929765886288,
+          "notes": "mfe_pct=0.043478260869565216; mae_pct=-0.03678929765886288; time_to_invalidated=14; time_to_new_high=1",
+          "return_pct": 0.006688963210702341
+        },
+        "outcome_record_id": "out_trnd_20250918_02f95006ab180059_d7848f5099676908",
+        "packet_id": "pkt_trnd_20250918_02f95006ab180059",
+        "recorded_at": "2025-09-18T21:15:00Z",
+        "schema_version": "v1.0.0",
+        "status": "complete"
+      },
+      "record_type": "outcome",
+      "recorded_at": "2025-09-18T21:15:00Z",
+      "sequence": 36
+    },
+    {
+      "entity_id": "pkt_trnd_20250918_02f95006ab180059",
+      "payload": {
+        "artifact_refs": [],
+        "as_of_date": "2025-09-18",
+        "details": {
+          "decision_event_id": "dec_trnd_20250918_02f95006ab180059_1f664ed4e137eeb0"
+        },
+        "event_type": "outcome_recorded",
+        "lifecycle_event_id": "life_1bc319679127ec44",
+        "packet_id": "pkt_trnd_20250918_02f95006ab180059",
+        "run_id": "run_local_20250918_3e3337a6d2837850",
+        "setup_family": "trend_pullback",
+        "symbol": "TRND"
+      },
+      "record_type": "lifecycle",
+      "recorded_at": "2025-09-18T21:15:00Z",
+      "sequence": 37
+    }
+  ]
+}

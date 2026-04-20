@@ -1,0 +1,55 @@
+{
+  "artifact_type": "ranking",
+  "as_of_date": "2025-09-18",
+  "config_fingerprint": "7da318e9bf2a3f80782b3370fe5246eff1be663b92e098a6cfdb97b904eb55c7",
+  "environment": "local",
+  "generated_at": "2025-09-18T21:15:00Z",
+  "hidden_composite_alpha_score": false,
+  "method": "transparent_weighted_sum",
+  "ranked_packets": [
+    {
+      "packet_id": "pkt_base_20250918_c5e29def4b368fa2",
+      "rank": 1,
+      "score_components": [
+        {
+          "name": "review_queue_inverse",
+          "value": 1.0,
+          "weight": 1.0
+        }
+      ],
+      "setup_family": "base_breakout",
+      "symbol": "BASE",
+      "total_score": 1.0
+    },
+    {
+      "packet_id": "pkt_avrp_20250918_2c616c061bd44e79",
+      "rank": 2,
+      "score_components": [
+        {
+          "name": "review_queue_inverse",
+          "value": 0.5,
+          "weight": 1.0
+        }
+      ],
+      "setup_family": "avwap_reclaim",
+      "symbol": "AVRP",
+      "total_score": 0.5
+    },
+    {
+      "packet_id": "pkt_cnfl_20250918_1affa3696e4c4b8f",
+      "rank": 3,
+      "score_components": [
+        {
+          "name": "review_queue_inverse",
+          "value": 0.3333333333333333,
+          "weight": 1.0
+        }
+      ],
+      "setup_family": "base_breakout",
+      "symbol": "CNFL",
+      "total_score": 0.3333333333333333
+    }
+  ],
+  "run_id": "run_local_20250918_3e3337a6d2837850",
+  "schema_version": "v1.0.0"
+}

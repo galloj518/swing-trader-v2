@@ -1,0 +1,31 @@
+{
+  "AAPL": {
+    "metadata": {
+      "symbol": "AAPL",
+      "exchange": "NASDAQ",
+      "asset_type": "common_stock",
+      "currency": "USD",
+      "name": "Apple Inc."
+    },
+    "bars": [
+      {"date": "2025-04-14", "open": 149.0, "high": 151.0, "low": 148.0, "close": 150.0, "adjusted_close": 149.5, "volume": 2000000, "dividend": 0.0, "split_ratio": 1.0},
+      {"date": "2025-04-15", "open": 150.0, "high": 152.0, "low": 149.0, "close": 151.0, "adjusted_close": 150.6, "volume": 2100000, "dividend": 0.0, "split_ratio": 1.0},
+      {"date": "2025-04-15", "open": 150.0, "high": 152.2, "low": 149.0, "close": 151.2, "adjusted_close": 150.8, "volume": 2105000, "dividend": 0.0, "split_ratio": 1.0},
+      {"date": "2025-04-16", "open": 151.0, "high": 153.0, "low": 150.0, "close": 152.0, "adjusted_close": 151.5, "volume": 2200000, "dividend": 0.0, "split_ratio": 1.0}
+    ]
+  },
+  "OTCM": {
+    "metadata": {
+      "symbol": "OTCM",
+      "exchange": "OTC",
+      "asset_type": "common_stock",
+      "currency": "USD",
+      "name": "Off Market Co."
+    },
+    "bars": [
+      {"date": "2025-04-14", "open": 11.0, "high": 11.5, "low": 10.8, "close": 11.1, "adjusted_close": 11.1, "volume": 1500000, "dividend": 0.0, "split_ratio": 1.0},
+      {"date": "2025-04-15", "open": 11.1, "high": 11.6, "low": 10.9, "close": 11.2, "adjusted_close": 11.2, "volume": 1550000, "dividend": 0.0, "split_ratio": 1.0},
+      {"date": "2025-04-16", "open": 11.2, "high": 11.7, "low": 11.0, "close": 11.3, "adjusted_close": 11.3, "volume": 1600000, "dividend": 0.0, "split_ratio": 1.0}
+    ]
+  }
+}

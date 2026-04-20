@@ -1,0 +1,100 @@
+name: Daily EOD Scan
+
+on:
+  schedule:
+    - cron: "30 21 * * 1-5"
+  workflow_dispatch:
+    inputs:
+      as_of_date:
+        description: "Override EOD as-of date (YYYY-MM-DD)"
+        required: false
+        type: string
+      symbol_metadata:
+        description: "Path to symbol metadata JSON"
+        required: false
+        default: "inputs/manual/symbol_metadata.json"
+        type: string
+      bars_input:
+        description: "Optional path to pre-fetched bars JSON"
+        required: false
+        type: string
+
+jobs:
+  eod:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install runtime dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install yfinance
+
+      - name: Run daily scan
+        env:
+          PYTHONPATH: src
+          AS_OF_DATE: ${{ inputs.as_of_date }}
+          SYMBOL_METADATA: ${{ inputs.symbol_metadata }}
+          BARS_INPUT: ${{ inputs.bars_input }}
+        run: |
+          ARGS=(--symbol-metadata "${SYMBOL_METADATA:-inputs/manual/symbol_metadata.json}" --environment github_actions --artifact-root artifacts)
+          if [ -n "${AS_OF_DATE}" ]; then ARGS+=(--as-of-date "${AS_OF_DATE}"); fi
+          if [ -n "${BARS_INPUT}" ]; then ARGS+=(--bars-input "${BARS_INPUT}"); fi
+          python -m swingtrader_v2.pipelines.run_daily_scan "${ARGS[@]}" | tee daily_scan.json
+
+      - name: Build packets
+        env:
+          PYTHONPATH: src
+          AS_OF_DATE: ${{ inputs.as_of_date }}
+        run: |
+          RUN_ROOT=$(python - <<'PY'
+import json
+from pathlib import Path
+print(json.loads(Path("daily_scan.json").read_text())["run_root"])
+PY
+)
+          ARGS=(--scan-state "${RUN_ROOT}/scan/scan_state.json" --environment github_actions --artifact-root artifacts)
+          if [ -n "${AS_OF_DATE}" ]; then ARGS+=(--as-of-date "${AS_OF_DATE}"); fi
+          python -m swingtrader_v2.pipelines.run_packet_build "${ARGS[@]}" | tee packet_build.json
+
+      - name: Run rankings
+        env:
+          PYTHONPATH: src
+          AS_OF_DATE: ${{ inputs.as_of_date }}
+        run: |
+          RUN_ROOT=$(python - <<'PY'
+import json
+from pathlib import Path
+print(json.loads(Path("packet_build.json").read_text())["run_root"])
+PY
+)
+          ARGS=(--packet-bundles "${RUN_ROOT}/packets/packet_bundles.json" --environment github_actions --artifact-root artifacts)
+          if [ -n "${AS_OF_DATE}" ]; then ARGS+=(--as-of-date "${AS_OF_DATE}"); fi
+          python -m swingtrader_v2.pipelines.run_rankings "${ARGS[@]}" | tee rankings.json
+
+      - name: Build dashboard
+        env:
+          PYTHONPATH: src
+          AS_OF_DATE: ${{ inputs.as_of_date }}
+        run: |
+          RUN_ROOT=$(python - <<'PY'
+import json
+from pathlib import Path
+print(json.loads(Path("rankings.json").read_text())["run_root"])
+PY
+)
+          ARGS=(--ranking "${RUN_ROOT}/rankings/ranking.json" --run-manifest "${RUN_ROOT}/manifests/run_manifest.json" --packets-dir "${RUN_ROOT}/packets" --environment github_actions --artifact-root artifacts)
+          if [ -n "${AS_OF_DATE}" ]; then ARGS+=(--as-of-date "${AS_OF_DATE}"); fi
+          python -m swingtrader_v2.pipelines.run_dashboard "${ARGS[@]}"
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: swingtrader-eod-artifacts
+          path: artifacts/
+

@@ -1,0 +1,23 @@
+{
+  "schema_version": "v1.0.0",
+  "setup_families": [
+    {
+      "name": "trend_pullback",
+      "enabled": true,
+      "priority_order": 1
+    },
+    {
+      "name": "base_breakout",
+      "enabled": true,
+      "priority_order": 2
+    },
+    {
+      "name": "avwap_reclaim",
+      "enabled": true,
+      "priority_order": 3,
+      "notes": [
+        "AVWAP in v1 is a daily-bar proxy only."
+      ]
+    }
+  ]
+}

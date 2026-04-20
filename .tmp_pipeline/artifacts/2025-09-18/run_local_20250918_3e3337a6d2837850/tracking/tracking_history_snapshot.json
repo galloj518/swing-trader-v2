@@ -1,0 +1,82 @@
+{
+  "records": [
+    {
+      "entity_id": "pkt_aapl_20250918_d8c38d66e739f0e1",
+      "payload": {
+        "artifact_refs": [],
+        "as_of_date": "2025-09-18",
+        "details": {
+          "scanner_label": "detected:trend_pullback"
+        },
+        "event_type": "detected",
+        "lifecycle_event_id": "life_bb1978122c7afcb0",
+        "packet_id": "pkt_aapl_20250918_d8c38d66e739f0e1",
+        "run_id": "run_local_20250918_3e3337a6d2837850",
+        "setup_family": "trend_pullback",
+        "symbol": "AAPL"
+      },
+      "record_type": "lifecycle",
+      "recorded_at": "2026-04-20T22:01:22.432308Z",
+      "sequence": 1
+    },
+    {
+      "entity_id": "pkt_aapl_20250918_d8c38d66e739f0e1",
+      "payload": {
+        "artifact_refs": [],
+        "as_of_date": "2025-09-18",
+        "details": {
+          "schema_version": "v1.0.0"
+        },
+        "event_type": "packet_built",
+        "lifecycle_event_id": "life_e28b48b686f0af03",
+        "packet_id": "pkt_aapl_20250918_d8c38d66e739f0e1",
+        "run_id": "run_local_20250918_3e3337a6d2837850",
+        "setup_family": "trend_pullback",
+        "symbol": "AAPL"
+      },
+      "record_type": "lifecycle",
+      "recorded_at": "2026-04-20T22:01:22.432308Z",
+      "sequence": 2
+    },
+    {
+      "entity_id": "pkt_aapl_20250918_d8c38d66e739f0e1",
+      "payload": {
+        "artifact_refs": [],
+        "as_of_date": "2025-09-18",
+        "details": {
+          "disqualification_reasons": [],
+          "primary_family": "trend_pullback",
+          "secondary_tags": []
+        },
+        "event_type": "classified",
+        "lifecycle_event_id": "life_4ebdcb29683830fa",
+        "packet_id": "pkt_aapl_20250918_d8c38d66e739f0e1",
+        "run_id": "run_local_20250918_3e3337a6d2837850",
+        "setup_family": "trend_pullback",
+        "symbol": "AAPL"
+      },
+      "record_type": "lifecycle",
+      "recorded_at": "2026-04-20T22:01:22.432308Z",
+      "sequence": 3
+    },
+    {
+      "entity_id": "pkt_aapl_20250918_d8c38d66e739f0e1",
+      "payload": {
+        "artifact_refs": [],
+        "as_of_date": "2025-09-18",
+        "details": {
+          "eligibility_status": "ineligible"
+        },
+        "event_type": "ineligible",
+        "lifecycle_event_id": "life_d19832a3918eebd0",
+        "packet_id": "pkt_aapl_20250918_d8c38d66e739f0e1",
+        "run_id": "run_local_20250918_3e3337a6d2837850",
+        "setup_family": "trend_pullback",
+        "symbol": "AAPL"
+      },
+      "record_type": "lifecycle",
+      "recorded_at": "2026-04-20T22:01:22.432308Z",
+      "sequence": 4
+    }
+  ]
+}

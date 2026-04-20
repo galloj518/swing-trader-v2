@@ -1,0 +1,174 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://swingtrader-v2/schemas/dashboard_payload.schema.json",
+  "title": "SwingTraderDashboardPayload",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "artifact_type",
+    "schema_version",
+    "run_id",
+    "generated_at",
+    "as_of_date",
+    "environment",
+    "config_fingerprint",
+    "artifact_inputs",
+    "summary",
+    "rows"
+  ],
+  "properties": {
+    "artifact_type": {
+      "const": "dashboard_payload"
+    },
+    "schema_version": {
+      "type": "string",
+      "pattern": "^v[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "run_id": {
+      "type": "string",
+      "pattern": "^run_[a-z0-9_]+_[0-9]{8}_[0-9a-f]{16}$"
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "as_of_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "environment": {
+      "type": "string",
+      "enum": [
+        "local",
+        "github_actions"
+      ]
+    },
+    "config_fingerprint": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "artifact_inputs": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "run_manifest",
+        "ranking",
+        "packets"
+      ],
+      "properties": {
+        "run_manifest": {
+          "$ref": "#/$defs/artifactRef"
+        },
+        "ranking": {
+          "$ref": "#/$defs/artifactRef"
+        },
+        "packets": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/artifactRef"
+          }
+        }
+      }
+    },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "eligible_count",
+        "ranked_count",
+        "ineligible_count"
+      ],
+      "properties": {
+        "eligible_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "ranked_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "ineligible_count": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "rows": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "packet_id",
+          "symbol",
+          "setup_family",
+          "eligibility_status",
+          "prioritization_status"
+        ],
+        "properties": {
+          "packet_id": {
+            "type": "string",
+            "pattern": "^pkt_[a-z0-9_]+_[0-9]{8}_[0-9a-f]{16}$"
+          },
+          "symbol": {
+            "type": "string",
+            "pattern": "^[A-Z][A-Z0-9.-]{0,9}$"
+          },
+          "setup_family": {
+            "type": "string",
+            "enum": [
+              "trend_pullback",
+              "base_breakout",
+              "avwap_reclaim"
+            ]
+          },
+          "eligibility_status": {
+            "type": "string",
+            "enum": [
+              "eligible",
+              "ineligible",
+              "indeterminate"
+            ]
+          },
+          "prioritization_status": {
+            "type": "string",
+            "enum": [
+              "not_applicable",
+              "ranked",
+              "suppressed"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "artifactRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "artifact_type",
+        "artifact_id",
+        "schema_version"
+      ],
+      "properties": {
+        "artifact_type": {
+          "type": "string",
+          "enum": [
+            "packet",
+            "ranking",
+            "run_manifest"
+          ]
+        },
+        "artifact_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "schema_version": {
+          "type": "string",
+          "pattern": "^v[0-9]+\\.[0-9]+\\.[0-9]+$"
+        }
+      }
+    }
+  }
+}

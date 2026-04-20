@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SwingTrader v2 Dashboard - 2025-09-18</title>
+  <style>
+    body { font-family: Georgia, "Times New Roman", serif; margin: 0; background: linear-gradient(180deg, #f6f1e7 0%, #ffffff 100%); color: #1f2a37; }
+    main { max-width: 1200px; margin: 0 auto; padding: 24px; }
+    .banner { border: 2px solid #b45309; background: #fff7ed; padding: 16px; margin-bottom: 20px; }
+    .banner.ok { border-color: #166534; background: #f0fdf4; }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-bottom: 24px; }
+    .stat { background: #ffffffcc; padding: 16px; border: 1px solid #d1d5db; }
+    section { margin-bottom: 28px; }
+    table { width: 100%; border-collapse: collapse; background: #fff; }
+    th, td { border: 1px solid #d1d5db; padding: 8px; vertical-align: top; text-align: left; }
+    .packet-card, .gate-failure { background: #fff; border: 1px solid #d1d5db; padding: 12px; margin-bottom: 12px; }
+    .empty { color: #6b7280; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>SwingTrader v2 Dashboard - 2025-09-18</h1>
+    <div class="banner ">
+      <h2>Degraded Run</h2>
+      <p>Explicit degraded states are present: low_confidence, stale</p>
+    </div>
+    <div class="stats">
+      <div class="stat"><strong>Universe Count</strong><div>7</div></div>
+      <div class="stat"><strong>Candidate Count</strong><div>7</div></div>
+      <div class="stat"><strong>Eligible By Family</strong><ul><li>avwap_reclaim: 1</li><li>base_breakout: 2</li></ul></div>
+    </div>
+    <section>
+      <h2>Top Review Queue</h2>
+      <table><thead><tr><th>Queue</th><th>Symbol</th><th>Family</th><th>Priority</th><th>Eligibility</th><th>Prioritization</th><th>Degraded State</th></tr></thead><tbody><tr><td>1</td><td>BASE</td><td>base_breakout</td><td>UNRANKED</td><td>ELIGIBLE</td><td>RANKED</td><td><ul><li>anchor_set.base_high (low_confidence): breakout_pivot_not_found</li><li>derived_features.up_down_volume_ratio_20d (low_confidence): insufficient_down_volume</li></ul></td></tr><tr><td>2</td><td>AVRP</td><td>avwap_reclaim</td><td>UNRANKED</td><td>ELIGIBLE</td><td>RANKED</td><td><ul><li>anchor_set.base_high (low_confidence): breakout_pivot_not_found</li></ul></td></tr><tr><td>3</td><td>CNFL</td><td>base_breakout</td><td>UNRANKED</td><td>ELIGIBLE</td><td>RANKED</td><td><ul><li>none</li></ul></td></tr></tbody></table>
+    </section>
+    <section>
+      <h2>Family Ranked Tables</h2>
+      <section><h3>avwap_reclaim</h3><table><thead><tr><th>Family Rank</th><th>Symbol</th><th>Priority</th><th>Sort Key Explanations</th></tr></thead><tbody><tr><td>1</td><td>AVRP</td><td>UNRANKED</td><td><ul><li>review_queue_inverse=0.5</li></ul></td></tr></tbody></table></section><section><h3>base_breakout</h3><table><thead><tr><th>Family Rank</th><th>Symbol</th><th>Priority</th><th>Sort Key Explanations</th></tr></thead><tbody><tr><td>1</td><td>BASE</td><td>UNRANKED</td><td><ul><li>review_queue_inverse=1.0</li></ul></td></tr><tr><td>2</td><td>CNFL</td><td>UNRANKED</td><td><ul><li>review_queue_inverse=0.3333333333333333</li></ul></td></tr></tbody></table></section>
+    </section>
+    <section>
+      <h2>Packet Summaries</h2>
+      <article class='packet-card'><h4>AVRP <span>avwap_reclaim</span></h4><p><strong>Packet:</strong> pkt_avrp_20250918_2c616c061bd44e79</p><p><strong>Summary:</strong> Actionability=ready; trigger=99.41; invalidation=99.41; support=101.95; overhead=105.00; family=avwap_reclaim; evidence:close_above_avwap_proxy; evidence:distance_to_avwap_in_band; evidence:avwap_proxy_holding_or_rising; evidence:close_above_sma50; base_high anchor status=low_confidence; daily_proxy_avwap uses daily-bar AVWAP proxy; prior_swing_low uses daily-bar AVWAP proxy</p><p><strong>Data Status:</strong> low_confidence</p><ul><li>anchor_set.base_high (low_confidence): breakout_pivot_not_found</li></ul></article><article class='packet-card'><h4>CNFL <span>avwap_reclaim</span></h4><p><strong>Packet:</strong> pkt_cnfl_20250918_621011937a1a6dc9</p><p><strong>Summary:</strong> Actionability=ready; trigger=105.99; invalidation=105.99; support=105.99; overhead=109.00; family=avwap_reclaim; evidence:close_above_avwap_proxy; evidence:distance_to_avwap_in_band; evidence:avwap_proxy_holding_or_rising; evidence:close_above_sma50; base_high uses daily-bar AVWAP proxy; daily_proxy_avwap uses daily-bar AVWAP proxy; prior_swing_low uses daily-bar AVWAP proxy</p><p><strong>Data Status:</strong> ok</p><ul><li>none</li></ul></article><article class='packet-card'><h4>BASE <span>base_breakout</span></h4><p><strong>Packet:</strong> pkt_base_20250918_c5e29def4b368fa2</p><p><strong>Summary:</strong> Actionability=ready; trigger=146.00; invalidation=135.15; support=135.15; overhead=146.00; family=base_breakout; evidence:base_length_threshold_met; evidence:base_depth_in_band; evidence:contraction_behavior_present; evidence:pivot_proximity_present; base_high anchor status=low_confidence; daily_proxy_avwap uses daily-bar AVWAP proxy; prior_swing_low uses daily-bar AVWAP proxy</p><p><strong>Data Status:</strong> low_confidence</p><ul><li>anchor_set.base_high (low_confidence): breakout_pivot_not_found</li><li>derived_features.up_down_volume_ratio_20d (low_confidence): insufficient_down_volume</li></ul></article><article class='packet-card'><h4>CNFL <span>base_breakout</span></h4><p><strong>Packet:</strong> pkt_cnfl_20250918_1affa3696e4c4b8f</p><p><strong>Summary:</strong> Actionability=ready; trigger=109.00; invalidation=105.99; support=105.99; overhead=109.00; family=base_breakout; evidence:base_length_threshold_met; evidence:base_depth_in_band; evidence:contraction_behavior_present; evidence:pivot_proximity_present; base_high uses daily-bar AVWAP proxy; daily_proxy_avwap uses daily-bar AVWAP proxy; prior_swing_low uses daily-bar AVWAP proxy</p><p><strong>Data Status:</strong> ok</p><ul><li>none</li></ul></article><article class='packet-card'><h4>SPLT <span>trend_pullback</span></h4><p><strong>Packet:</strong> pkt_splt_20250918_61239626aa15c622</p><p><strong>Summary:</strong> Actionability=ready; trigger=301.00; invalidation=297.85; support=297.85; overhead=312.00; family=trend_pullback; evidence:close_above_sma50; evidence:sma50_above_sma200; evidence:ema21_at_or_above_sma50; evidence:positive_63d_excess_return_vs_spy; evidence:pullback_in_band; evidence:support_proximity_present; base_high anchor status=low_confidence; daily_proxy_avwap anchor status=low_confidence; prior_swing_low anchor status=low_confidence</p><p><strong>Data Status:</strong> low_confidence</p><ul><li>anchor_set.base_high (low_confidence): breakout_pivot_not_found</li><li>anchor_set.daily_proxy_avwap (low_confidence): pivot_low_not_found</li><li>anchor_set.prior_swing_low (low_confidence): pivot_low_not_found</li></ul></article><article class='packet-card'><h4>STAL <span>trend_pullback</span></h4><p><strong>Packet:</strong> pkt_stal_20250918_7dae26353a71fda8</p><p><strong>Summary:</strong> Actionability=ready; trigger=301.00; invalidation=297.85; support=297.85; overhead=312.00; family=trend_pullback; evidence:close_above_sma50; evidence:sma50_above_sma200; evidence:ema21_at_or_above_sma50; evidence:positive_63d_excess_return_vs_spy; evidence:pullback_in_band; evidence:support_proximity_present; base_high anchor status=low_confidence; daily_proxy_avwap anchor status=low_confidence; prior_swing_low anchor status=low_confidence</p><p><strong>Data Status:</strong> stale</p><ul><li>anchor_set.base_high (low_confidence): breakout_pivot_not_found</li><li>anchor_set.daily_proxy_avwap (low_confidence): pivot_low_not_found</li><li>anchor_set.prior_swing_low (low_confidence): pivot_low_not_found</li><li>raw_snapshot.coverage.stale_expected_session (stale): stale_expected_session</li></ul></article><article class='packet-card'><h4>TRND <span>trend_pullback</span></h4><p><strong>Packet:</strong> pkt_trnd_20250918_02f95006ab180059</p><p><strong>Summary:</strong> Actionability=ready; trigger=301.00; invalidation=297.85; support=297.85; overhead=312.00; family=trend_pullback; evidence:close_above_sma50; evidence:sma50_above_sma200; evidence:ema21_at_or_above_sma50; evidence:positive_63d_excess_return_vs_spy; evidence:pullback_in_band; evidence:support_proximity_present; base_high anchor status=low_confidence; daily_proxy_avwap anchor status=low_confidence; prior_swing_low anchor status=low_confidence</p><p><strong>Data Status:</strong> low_confidence</p><ul><li>anchor_set.base_high (low_confidence): breakout_pivot_not_found</li><li>anchor_set.daily_proxy_avwap (low_confidence): pivot_low_not_found</li><li>anchor_set.prior_swing_low (low_confidence): pivot_low_not_found</li></ul></article>
+    </section>
+    <section>
+      <h2>Gate Failure Reasons</h2>
+      <article class='gate-failure'><h4>AVRP <span>pkt_avrp_20250918_2c616c061bd44e79</span></h4><ul><li>data_sufficiency: packet_partial_but_structurally_usable</li></ul></article><article class='gate-failure'><h4>BASE <span>pkt_base_20250918_c5e29def4b368fa2</span></h4><ul><li>data_sufficiency: packet_partial_but_structurally_usable</li></ul></article><article class='gate-failure'><h4>CNFL <span>pkt_cnfl_20250918_1affa3696e4c4b8f</span></h4><ul><li>classification_coherence: multi_family_overlap_requires_review</li></ul></article><article class='gate-failure'><h4>CNFL <span>pkt_cnfl_20250918_621011937a1a6dc9</span></h4><ul><li>classification_coherence: packet_family_mismatch</li></ul></article><article class='gate-failure'><h4>SPLT <span>pkt_splt_20250918_61239626aa15c622</span></h4><ul><li>data_sufficiency: anchor_set_missing</li><li>corporate_action_distortion: recent_split_distortion</li></ul></article><article class='gate-failure'><h4>STAL <span>pkt_stal_20250918_7dae26353a71fda8</span></h4><ul><li>freshness: snapshot_status_stale, staleness_threshold_exceeded</li><li>data_sufficiency: anchor_set_missing</li></ul></article><article class='gate-failure'><h4>TRND <span>pkt_trnd_20250918_02f95006ab180059</span></h4><ul><li>data_sufficiency: anchor_set_missing</li></ul></article>
+    </section>
+    <section>
+      <h2>Watchlist Changes Vs Prior Session</h2>
+      <div class="stats">
+        <div class="stat"><strong>Added</strong><ul><li>AVRP</li><li>BASE</li><li>CNFL</li></ul></div>
+        <div class="stat"><strong>Removed</strong><ul><li>none</li></ul></div>
+        <div class="stat"><strong>Unchanged</strong><ul><li>none</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>Outcome Summary</h2>
+      <ul><li>not_started: 7</li></ul>
+    </section>
+    <section>
+      <h2>Survivorship Bias Disclosure</h2>
+      <p>Dashboard counts and tables reflect only artifacts captured for the run. They do not represent delisted names, missing historical constituents, or any symbols omitted upstream.</p>
+    </section>
+  </main>
+</body>
+</html>

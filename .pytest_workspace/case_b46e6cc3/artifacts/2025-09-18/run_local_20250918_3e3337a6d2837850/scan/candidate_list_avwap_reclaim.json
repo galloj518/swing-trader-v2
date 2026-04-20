@@ -1,0 +1,24 @@
+{
+  "artifact_type": "candidate_list",
+  "as_of_date": "2025-09-18",
+  "candidates": [
+    {
+      "candidate_id": "cand_avrp_9f0a9c03ae75de6a",
+      "classification_status": "ok",
+      "packet_id": "pkt_avrp_20250918_2c616c061bd44e79",
+      "symbol": "AVRP"
+    },
+    {
+      "candidate_id": "cand_cnfl_d1ba39c09838d9bd",
+      "classification_status": "ok",
+      "packet_id": "pkt_cnfl_20250918_621011937a1a6dc9",
+      "symbol": "CNFL"
+    }
+  ],
+  "config_fingerprint": "7da318e9bf2a3f80782b3370fe5246eff1be663b92e098a6cfdb97b904eb55c7",
+  "environment": "local",
+  "generated_at": "2025-09-18T21:15:00Z",
+  "run_id": "run_local_20250918_3e3337a6d2837850",
+  "schema_version": "v1.0.0",
+  "setup_family": "avwap_reclaim"
+}

@@ -1,0 +1,58 @@
+{
+  "AVRP": {
+    "asset_type": "common_stock",
+    "country": "US",
+    "currency": "USD",
+    "exchange": "NASDAQ",
+    "name": "clean_avwap_reclaim",
+    "symbol": "AVRP"
+  },
+  "BASE": {
+    "asset_type": "common_stock",
+    "country": "US",
+    "currency": "USD",
+    "exchange": "NYSE",
+    "name": "clean_base_breakout",
+    "symbol": "BASE"
+  },
+  "CNFL": {
+    "asset_type": "common_stock",
+    "country": "US",
+    "currency": "USD",
+    "exchange": "NYSE_AMERICAN",
+    "name": "conflicting_detector_symbol",
+    "symbol": "CNFL"
+  },
+  "SHRT": {
+    "asset_type": "common_stock",
+    "country": "US",
+    "currency": "USD",
+    "exchange": "NASDAQ",
+    "name": "insufficient_history_symbol",
+    "symbol": "SHRT"
+  },
+  "SPLT": {
+    "asset_type": "common_stock",
+    "country": "US",
+    "currency": "USD",
+    "exchange": "NASDAQ",
+    "name": "split_distorted_symbol",
+    "symbol": "SPLT"
+  },
+  "STAL": {
+    "asset_type": "common_stock",
+    "country": "US",
+    "currency": "USD",
+    "exchange": "NASDAQ",
+    "name": "stale_data_symbol",
+    "symbol": "STAL"
+  },
+  "TRND": {
+    "asset_type": "common_stock",
+    "country": "US",
+    "currency": "USD",
+    "exchange": "NASDAQ",
+    "name": "clean_trend_pullback",
+    "symbol": "TRND"
+  }
+}

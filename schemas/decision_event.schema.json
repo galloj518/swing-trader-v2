@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://swingtrader-v2/schemas/decision_event.schema.json",
+  "title": "SwingTraderDecisionEvent",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "artifact_type",
+    "schema_version",
+    "decision_event_id",
+    "packet_id",
+    "run_id",
+    "recorded_at",
+    "as_of_date",
+    "environment",
+    "decision"
+  ],
+  "properties": {
+    "artifact_type": {
+      "const": "decision_event"
+    },
+    "schema_version": {
+      "type": "string",
+      "pattern": "^v[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "decision_event_id": {
+      "type": "string",
+      "pattern": "^dec_[a-z0-9_]+_[0-9a-f]{16}$"
+    },
+    "packet_id": {
+      "type": "string",
+      "pattern": "^pkt_[a-z0-9_]+_[0-9]{8}_[0-9a-f]{16}$"
+    },
+    "run_id": {
+      "type": "string",
+      "pattern": "^run_[a-z0-9_]+_[0-9]{8}_[0-9a-f]{16}$"
+    },
+    "recorded_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "as_of_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "environment": {
+      "type": "string",
+      "enum": [
+        "local",
+        "github_actions"
+      ]
+    },
+    "decision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "action",
+        "rationale"
+      ],
+      "properties": {
+        "action": {
+          "type": "string",
+          "enum": [
+            "watch",
+            "pass",
+            "plan_trade",
+            "invalidated"
+          ]
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 1
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "default": []
+        }
+      }
+    }
+  }
+}

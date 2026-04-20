@@ -1,0 +1,17 @@
+{
+  "schema_version": "v1.0.0",
+  "artifacts": {
+    "schema_versions": {
+      "packet": "v1.0.0",
+      "candidate_list": "v1.0.0",
+      "ranking": "v1.0.0",
+      "dashboard_payload": "v1.0.0",
+      "run_manifest": "v1.0.0",
+      "decision_event": "v1.0.0",
+      "outcome_record": "v1.0.0"
+    },
+    "strict_machine_readable_contracts": true,
+    "emit_config_fingerprint": true,
+    "emit_lineage_refs": true
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "schema_version": "v1.0.0",
+  "universe": {
+    "name": "liquid_us_equities",
+    "asset_class": "equity",
+    "country": "US",
+    "listing_regions": ["US"],
+    "timeframe": "eod",
+    "exchanges": ["NYSE", "NASDAQ", "AMEX"],
+    "price": {
+      "min": 5.0,
+      "max": 1000.0
+    },
+    "liquidity": {
+      "min_avg_daily_volume_20d": 1000000,
+      "min_avg_daily_dollar_volume_20d": 25000000.0
+    },
+    "providers": {
+      "baseline": "yfinance",
+      "optional": ["schwab"]
+    }
+  }
+}

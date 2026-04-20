@@ -1,0 +1,23 @@
+{
+  "schema_version": "v1.0.0",
+  "method": "transparent_weighted_sum",
+  "hard_eligibility_required": true,
+  "hidden_composite_alpha_score": false,
+  "components": [
+    {
+      "name": "trend_quality",
+      "weight": 0.4,
+      "enabled": true
+    },
+    {
+      "name": "anchor_alignment",
+      "weight": 0.35,
+      "enabled": true
+    },
+    {
+      "name": "risk_reward_clarity",
+      "weight": 0.25,
+      "enabled": true
+    }
+  ]
+}

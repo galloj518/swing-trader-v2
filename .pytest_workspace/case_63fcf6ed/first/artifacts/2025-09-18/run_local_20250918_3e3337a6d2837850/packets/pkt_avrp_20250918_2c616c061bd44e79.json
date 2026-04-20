@@ -1,0 +1,411 @@
+{
+  "anchor_set": [
+    {
+      "anchor_id": "anc_avrp_36ed018ba76630b8",
+      "is_daily_proxy": true,
+      "name": "daily_proxy_avwap",
+      "source": "swing_pivot_low",
+      "status": "ok",
+      "value": 93.0
+    },
+    {
+      "anchor_id": "anc_avrp_8301471ce50325d7",
+      "is_daily_proxy": true,
+      "name": "prior_swing_low",
+      "source": "swing_pivot_low",
+      "status": "ok",
+      "value": 93.0
+    }
+  ],
+  "artifact_type": "packet",
+  "as_of_date": "2025-09-18",
+  "config_fingerprint": "7da318e9bf2a3f80782b3370fe5246eff1be663b92e098a6cfdb97b904eb55c7",
+  "data_status": {
+    "issues": [
+      {
+        "field": "anchor_set.base_high",
+        "reason": "breakout_pivot_not_found",
+        "status": "low_confidence"
+      }
+    ],
+    "overall_status": "low_confidence"
+  },
+  "derived_features": {
+    "feature_status": "ok",
+    "values": [
+      {
+        "name": "atr14",
+        "status": "ok",
+        "value": 2.142857142857143
+      },
+      {
+        "name": "atr14_pct",
+        "status": "ok",
+        "units": "pct",
+        "value": 0.020604395604395604
+      },
+      {
+        "name": "atr_contraction_ratio",
+        "status": "ok",
+        "units": "pct",
+        "value": 1.0546875
+      },
+      {
+        "name": "avwap_proxy.daily_proxy_avwap.bars_since_anchor",
+        "status": "ok",
+        "value": 11
+      },
+      {
+        "name": "avwap_proxy.daily_proxy_avwap.current",
+        "status": "ok",
+        "value": 99.41489361702128
+      },
+      {
+        "name": "avwap_proxy.daily_proxy_avwap.distance_from_close_pct",
+        "status": "ok",
+        "units": "pct",
+        "value": 0.046120920278223634
+      },
+      {
+        "name": "avwap_proxy.daily_proxy_avwap.short_slope",
+        "status": "ok",
+        "units": "ratio",
+        "value": 0.009447509949892116
+      },
+      {
+        "name": "avwap_proxy.prior_swing_low.bars_since_anchor",
+        "status": "ok",
+        "value": 11
+      },
+      {
+        "name": "avwap_proxy.prior_swing_low.current",
+        "status": "ok",
+        "value": 99.41489361702128
+      },
+      {
+        "name": "avwap_proxy.prior_swing_low.distance_from_close_pct",
+        "status": "ok",
+        "units": "pct",
+        "value": 0.046120920278223634
+      },
+      {
+        "name": "avwap_proxy.prior_swing_low.short_slope",
+        "status": "ok",
+        "units": "ratio",
+        "value": 0.009447509949892116
+      },
+      {
+        "name": "base_depth_pct",
+        "status": "ok",
+        "units": "pct",
+        "value": 0.11428571428571428
+      },
+      {
+        "name": "base_length_bars",
+        "status": "ok",
+        "value": 30.0
+      },
+      {
+        "name": "ema10",
+        "status": "ok",
+        "value": 101.22631259449318
+      },
+      {
+        "name": "ema10_distance_from_close_pct",
+        "status": "ok",
+        "units": "pct",
+        "value": 0.027400853932297752
+      },
+      {
+        "name": "ema10_slope",
+        "status": "ok",
+        "units": "ratio",
+        "value": 0.006126382677595582
+      },
+      {
+        "name": "ema21",
+        "status": "ok",
+        "value": 100.43713211312364
+      },
+      {
+        "name": "ema21_distance_from_close_pct",
+        "status": "ok",
+        "units": "pct",
+        "value": 0.03547361231763824
+      },
+      {
+        "name": "ema21_slope",
+        "status": "ok",
+        "units": "ratio",
+        "value": 0.003559989801571435
+      },
+      {
+        "name": "excess_return_percentile_21d",
+        "status": "ok",
+        "units": "pct",
+        "value": 1.0
+      },
+      {
+        "name": "excess_return_percentile_63d",
+        "status": "ok",
+        "units": "pct",
+        "value": 1.0
+      },
+      {
+        "name": "excess_return_vs_spy_21d",
+        "status": "ok",
+        "units": "pct",
+        "value": 0.0019105101451987738
+      },
+      {
+        "name": "excess_return_vs_spy_63d",
+        "status": "ok",
+        "units": "pct",
+        "value": -0.16876776104964025
+      },
+      {
+        "name": "gap_pct",
+        "status": "ok",
+        "units": "pct",
+        "value": -0.004807692307692308
+      },
+      {
+        "name": "gap_vs_prior_range_pct",
+        "status": "ok",
+        "units": "pct",
+        "value": 0.004807692307692308
+      },
+      {
+        "name": "median_dollar_volume_50d",
+        "status": "ok",
+        "value": 250908750.0
+      },
+      {
+        "name": "median_volume_50d",
+        "status": "ok",
+        "value": 2460000.0
+      },
+      {
+        "name": "overhead_supply_proximity_pct",
+        "status": "ok",
+        "units": "pct",
+        "value": 0.009615384615384616
+      },
+      {
+        "name": "pivot_price",
+        "status": "ok",
+        "value": 105.0
+      },
+      {
+        "name": "pullback_depth_pct",
+        "status": "ok",
+        "units": "pct",
+        "value": 0.09523809523809523
+      },
+      {
+        "name": "relative_volume_20d",
+        "status": "ok",
+        "value": 1.0151975683890577
+      },
+      {
+        "name": "return_10d",
+        "status": "ok",
+        "units": "pct",
+        "value": 0.09473684210526316
+      },
+      {
+        "name": "return_21d",
+        "status": "ok",
+        "units": "pct",
+        "value": 0.03482587064676617
+      },
+      {
+        "name": "return_5d",
+        "status": "ok",
+        "units": "pct",
+        "value": 0.04
+      },
+      {
+        "name": "return_63d",
+        "status": "ok",
+        "units": "pct",
+        "value": -0.06306306306306306
+      },
+      {
+        "name": "sma100",
+        "status": "ok",
+        "value": 107.915
+      },
+      {
+        "name": "sma100_distance_from_close_pct",
+        "status": "ok",
+        "units": "pct",
+        "value": -0.036278552564518424
+      },
+      {
+        "name": "sma100_slope",
+        "status": "ok",
+        "units": "ratio",
+        "value": -0.0015035506927898435
+      },
+      {
+        "name": "sma200",
+        "status": "ok",
+        "value": 120.27
+      },
+      {
+        "name": "sma200_distance_from_close_pct",
+        "status": "ok",
+        "units": "pct",
+        "value": -0.13527895568304646
+      },
+      {
+        "name": "sma200_slope",
+        "status": "ok",
+        "units": "ratio",
+        "value": -0.0017119556759112038
+      },
+      {
+        "name": "sma50",
+        "status": "ok",
+        "value": 101.955
+      },
+      {
+        "name": "sma50_distance_from_close_pct",
+        "status": "ok",
+        "units": "pct",
+        "value": 0.020057868667549425
+      },
+      {
+        "name": "sma50_slope",
+        "status": "ok",
+        "units": "ratio",
+        "value": -0.0007350779182593633
+      },
+      {
+        "name": "support_touches",
+        "status": "ok",
+        "value": 3.0
+      },
+      {
+        "name": "up_down_volume_ratio_20d",
+        "status": "ok",
+        "units": "pct",
+        "value": 1.7168989547038327
+      }
+    ]
+  },
+  "eligibility_decision": {
+    "gate_results": [
+      {
+        "message": "passed",
+        "rule_name": "instrument_support",
+        "status": "passed"
+      },
+      {
+        "message": "passed",
+        "rule_name": "freshness",
+        "status": "passed"
+      },
+      {
+        "message": "packet_partial_but_structurally_usable",
+        "rule_name": "data_sufficiency",
+        "status": "unsupported"
+      },
+      {
+        "message": "passed",
+        "rule_name": "liquidity_tradeability",
+        "status": "passed"
+      },
+      {
+        "message": "passed",
+        "rule_name": "corporate_action_distortion",
+        "status": "passed"
+      },
+      {
+        "message": "passed",
+        "rule_name": "classification_coherence",
+        "status": "passed"
+      },
+      {
+        "message": "passed",
+        "rule_name": "setup_specific_integrity",
+        "status": "passed"
+      },
+      {
+        "message": "passed",
+        "rule_name": "portfolio_warning_gate",
+        "status": "passed"
+      }
+    ],
+    "status": "eligible"
+  },
+  "environment": "local",
+  "generated_at": "2025-09-18T21:15:00Z",
+  "operator_review": {
+    "packet_summary": "Actionability=ready; trigger=99.41; invalidation=99.41; support=101.95; overhead=105.00; family=avwap_reclaim; evidence:close_above_avwap_proxy; evidence:distance_to_avwap_in_band; evidence:avwap_proxy_holding_or_rising; evidence:close_above_sma50; base_high anchor status=low_confidence; daily_proxy_avwap uses daily-bar AVWAP proxy; prior_swing_low uses daily-bar AVWAP proxy",
+    "status": "not_reviewed"
+  },
+  "outcomes": {
+    "outcome_record_refs": [],
+    "status": "not_started"
+  },
+  "packet_id": "pkt_avrp_20250918_2c616c061bd44e79",
+  "prioritization": {
+    "method": "transparent_weighted_sum",
+    "score_components": [
+      {
+        "name": "review_queue_inverse",
+        "reason": "P3_MONITOR",
+        "value": 0.5,
+        "weight": 1.0
+      }
+    ],
+    "status": "ranked",
+    "total_score": 0.5
+  },
+  "provenance": {
+    "artifact_lineage": [
+      {
+        "artifact_id": "scan/candidate_list_avwap_reclaim.json",
+        "artifact_type": "candidate_list",
+        "schema_version": "v1.0.0"
+      }
+    ],
+    "market_data_provider": "yfinance",
+    "provider_mode": "baseline"
+  },
+  "raw_snapshot": {
+    "coverage": {
+      "bars_available": 260,
+      "last_bar_date": "2025-09-18",
+      "staleness_days": 0
+    },
+    "liquidity": {
+      "avg_daily_dollar_volume_20d": 244100437.5,
+      "avg_daily_volume_20d": 2463750.0
+    },
+    "price_bar": {
+      "close": 104.0,
+      "high": 105.0,
+      "low": 103.0,
+      "open": 103.5,
+      "volume": 2505000
+    },
+    "snapshot_status": "ok"
+  },
+  "run_id": "run_local_20250918_3e3337a6d2837850",
+  "schema_version": "v1.0.0",
+  "setup": {
+    "classification_status": "ok",
+    "family": "avwap_reclaim",
+    "scanner_label": "detected:avwap_reclaim",
+    "scanner_notes": [
+      "close_above_avwap_proxy",
+      "distance_to_avwap_in_band",
+      "avwap_proxy_holding_or_rising",
+      "close_above_sma50"
+    ]
+  },
+  "symbol": "AVRP"
+}

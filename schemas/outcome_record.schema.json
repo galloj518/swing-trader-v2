@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://swingtrader-v2/schemas/outcome_record.schema.json",
+  "title": "SwingTraderOutcomeRecord",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "artifact_type",
+    "schema_version",
+    "outcome_record_id",
+    "packet_id",
+    "decision_event_id",
+    "recorded_at",
+    "horizon",
+    "status"
+  ],
+  "properties": {
+    "artifact_type": {
+      "const": "outcome_record"
+    },
+    "schema_version": {
+      "type": "string",
+      "pattern": "^v[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "outcome_record_id": {
+      "type": "string",
+      "pattern": "^out_[a-z0-9_]+_[0-9a-f]{16}$"
+    },
+    "packet_id": {
+      "type": "string",
+      "pattern": "^pkt_[a-z0-9_]+_[0-9]{8}_[0-9a-f]{16}$"
+    },
+    "decision_event_id": {
+      "type": "string",
+      "pattern": "^dec_[a-z0-9_]+_[0-9a-f]{16}$"
+    },
+    "recorded_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "horizon": {
+      "type": "string",
+      "enum": [
+        "t_plus_5",
+        "t_plus_10",
+        "t_plus_20"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "complete",
+        "unsupported"
+      ]
+    },
+    "metrics": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "return_pct": {
+          "type": "number"
+        },
+        "max_drawdown_pct": {
+          "type": "number"
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

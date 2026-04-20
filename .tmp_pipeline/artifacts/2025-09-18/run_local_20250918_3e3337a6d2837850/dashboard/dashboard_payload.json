@@ -1,0 +1,42 @@
+{
+  "artifact_inputs": {
+    "packets": [
+      {
+        "artifact_id": "pkt_aapl_20250918_d8c38d66e739f0e1",
+        "artifact_type": "packet",
+        "schema_version": "v1.0.0"
+      }
+    ],
+    "ranking": {
+      "artifact_id": "run_local_20250918_3e3337a6d2837850",
+      "artifact_type": "ranking",
+      "schema_version": "v1.0.0"
+    },
+    "run_manifest": {
+      "artifact_id": "run_local_20250918_3e3337a6d2837850",
+      "artifact_type": "run_manifest",
+      "schema_version": "v1.0.0"
+    }
+  },
+  "artifact_type": "dashboard_payload",
+  "as_of_date": "2025-09-18",
+  "config_fingerprint": "7da318e9bf2a3f80782b3370fe5246eff1be663b92e098a6cfdb97b904eb55c7",
+  "environment": "local",
+  "generated_at": "2026-04-20T22:01:21.164828Z",
+  "rows": [
+    {
+      "eligibility_status": "ineligible",
+      "packet_id": "pkt_aapl_20250918_d8c38d66e739f0e1",
+      "prioritization_status": "suppressed",
+      "setup_family": "trend_pullback",
+      "symbol": "AAPL"
+    }
+  ],
+  "run_id": "run_local_20250918_3e3337a6d2837850",
+  "schema_version": "v1.0.0",
+  "summary": {
+    "eligible_count": 0,
+    "ineligible_count": 1,
+    "ranked_count": 0
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "as_of_date": "2025-09-18",
+  "scenarios": [
+    {
+      "name": "clean_trend_pullback",
+      "symbol": "TRND",
+      "profile": "trend_pullback",
+      "bar_count": 220,
+      "exchange": "NASDAQ",
+      "asset_type": "common_stock",
+      "volume": 2400000
+    },
+    {
+      "name": "clean_base_breakout",
+      "symbol": "BASE",
+      "profile": "clean_base_breakout",
+      "bar_count": 260,
+      "exchange": "NYSE",
+      "asset_type": "common_stock",
+      "volume": 2500000
+    },
+    {
+      "name": "clean_avwap_reclaim",
+      "symbol": "AVRP",
+      "profile": "clean_avwap_reclaim",
+      "bar_count": 260,
+      "exchange": "NASDAQ",
+      "asset_type": "common_stock",
+      "volume": 2400000
+    },
+    {
+      "name": "stale_data_symbol",
+      "symbol": "STAL",
+      "profile": "trend_pullback",
+      "bar_count": 220,
+      "exchange": "NASDAQ",
+      "asset_type": "common_stock",
+      "volume": 2400000,
+      "stale_sessions": 2
+    },
+    {
+      "name": "split_distorted_symbol",
+      "symbol": "SPLT",
+      "profile": "trend_pullback",
+      "bar_count": 220,
+      "exchange": "NASDAQ",
+      "asset_type": "common_stock",
+      "volume": 2400000,
+      "split_offset": 6
+    },
+    {
+      "name": "insufficient_history_symbol",
+      "symbol": "SHRT",
+      "profile": "trend_pullback",
+      "bar_count": 120,
+      "exchange": "NASDAQ",
+      "asset_type": "common_stock",
+      "volume": 2400000
+    },
+    {
+      "name": "conflicting_detector_symbol",
+      "symbol": "CNFL",
+      "profile": "conflicting_detector",
+      "bar_count": 235,
+      "exchange": "NYSE_AMERICAN",
+      "asset_type": "common_stock",
+      "volume": 2500000
+    }
+  ]
+}

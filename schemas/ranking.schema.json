@@ -1,0 +1,122 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://swingtrader-v2/schemas/ranking.schema.json",
+  "title": "SwingTraderRanking",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "artifact_type",
+    "schema_version",
+    "run_id",
+    "generated_at",
+    "as_of_date",
+    "environment",
+    "config_fingerprint",
+    "method",
+    "hidden_composite_alpha_score",
+    "ranked_packets"
+  ],
+  "properties": {
+    "artifact_type": {
+      "const": "ranking"
+    },
+    "schema_version": {
+      "type": "string",
+      "pattern": "^v[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "run_id": {
+      "type": "string",
+      "pattern": "^run_[a-z0-9_]+_[0-9]{8}_[0-9a-f]{16}$"
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "as_of_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "environment": {
+      "type": "string",
+      "enum": [
+        "local",
+        "github_actions"
+      ]
+    },
+    "config_fingerprint": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "method": {
+      "const": "transparent_weighted_sum"
+    },
+    "hidden_composite_alpha_score": {
+      "const": false
+    },
+    "ranked_packets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "rank",
+          "packet_id",
+          "symbol",
+          "setup_family",
+          "score_components",
+          "total_score"
+        ],
+        "properties": {
+          "rank": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "packet_id": {
+            "type": "string",
+            "pattern": "^pkt_[a-z0-9_]+_[0-9]{8}_[0-9a-f]{16}$"
+          },
+          "symbol": {
+            "type": "string",
+            "pattern": "^[A-Z][A-Z0-9.-]{0,9}$"
+          },
+          "setup_family": {
+            "type": "string",
+            "enum": [
+              "trend_pullback",
+              "base_breakout",
+              "avwap_reclaim"
+            ]
+          },
+          "score_components": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "name",
+                "weight",
+                "value"
+              ],
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "weight": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "value": {
+                  "type": "number"
+                }
+              }
+            }
+          },
+          "total_score": {
+            "type": "number"
+          }
+        }
+      }
+    }
+  }
+}

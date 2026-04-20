@@ -1,0 +1,15 @@
+{
+  "selector_state": [
+    {
+      "classification": {
+        "disqualification_reasons": [],
+        "primary_family": "trend_pullback",
+        "secondary_tags": []
+      },
+      "eligibility_outcome": "ineligible",
+      "packet_id": "pkt_aapl_20250918_d8c38d66e739f0e1",
+      "suppressed_reason": "eligibility_ineligible",
+      "symbol": "AAPL"
+    }
+  ]
+}

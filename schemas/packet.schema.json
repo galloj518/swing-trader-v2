@@ -1,0 +1,542 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://swingtrader-v2/schemas/packet.schema.json",
+  "title": "SwingTraderPacket",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "artifact_type",
+    "schema_version",
+    "packet_id",
+    "run_id",
+    "generated_at",
+    "as_of_date",
+    "environment",
+    "config_fingerprint",
+    "symbol",
+    "setup",
+    "data_status",
+    "provenance",
+    "raw_snapshot",
+    "derived_features",
+    "anchor_set",
+    "eligibility_decision",
+    "prioritization",
+    "operator_review",
+    "outcomes"
+  ],
+  "properties": {
+    "artifact_type": {
+      "const": "packet"
+    },
+    "schema_version": {
+      "type": "string",
+      "pattern": "^v[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "packet_id": {
+      "type": "string",
+      "pattern": "^pkt_[a-z0-9_]+_[0-9]{8}_[0-9a-f]{16}$"
+    },
+    "run_id": {
+      "type": "string",
+      "pattern": "^run_[a-z0-9_]+_[0-9]{8}_[0-9a-f]{16}$"
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "as_of_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "environment": {
+      "type": "string",
+      "enum": [
+        "local",
+        "github_actions"
+      ]
+    },
+    "config_fingerprint": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "symbol": {
+      "type": "string",
+      "pattern": "^[A-Z][A-Z0-9.-]{0,9}$"
+    },
+    "setup": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "family",
+        "classification_status",
+        "scanner_label"
+      ],
+      "properties": {
+        "family": {
+          "type": "string",
+          "enum": [
+            "trend_pullback",
+            "base_breakout",
+            "avwap_reclaim"
+          ]
+        },
+        "classification_status": {
+          "$ref": "#/$defs/dataSupportStatus"
+        },
+        "scanner_label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "scanner_notes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "default": []
+        }
+      }
+    },
+    "data_status": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "overall_status",
+        "issues"
+      ],
+      "properties": {
+        "overall_status": {
+          "$ref": "#/$defs/dataSupportStatus"
+        },
+        "issues": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/dataIssue"
+          }
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "market_data_provider",
+        "provider_mode",
+        "artifact_lineage"
+      ],
+      "properties": {
+        "market_data_provider": {
+          "type": "string",
+          "enum": [
+            "yfinance",
+            "schwab"
+          ]
+        },
+        "provider_mode": {
+          "type": "string",
+          "enum": [
+            "baseline",
+            "optional"
+          ]
+        },
+        "artifact_lineage": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/artifactRef"
+          }
+        }
+      }
+    },
+    "raw_snapshot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "snapshot_status",
+        "price_bar",
+        "liquidity",
+        "coverage"
+      ],
+      "properties": {
+        "snapshot_status": {
+          "$ref": "#/$defs/dataSupportStatus"
+        },
+        "price_bar": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "open",
+            "high",
+            "low",
+            "close",
+            "volume"
+          ],
+          "properties": {
+            "open": {
+              "type": "number"
+            },
+            "high": {
+              "type": "number"
+            },
+            "low": {
+              "type": "number"
+            },
+            "close": {
+              "type": "number"
+            },
+            "volume": {
+              "type": "integer",
+              "minimum": 0
+            }
+          }
+        },
+        "liquidity": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "avg_daily_volume_20d",
+            "avg_daily_dollar_volume_20d"
+          ],
+          "properties": {
+            "avg_daily_volume_20d": {
+              "type": "number",
+              "minimum": 0
+            },
+            "avg_daily_dollar_volume_20d": {
+              "type": "number",
+              "minimum": 0
+            }
+          }
+        },
+        "coverage": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "bars_available",
+            "last_bar_date",
+            "staleness_days"
+          ],
+          "properties": {
+            "bars_available": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "last_bar_date": {
+              "type": "string",
+              "format": "date"
+            },
+            "staleness_days": {
+              "type": "integer",
+              "minimum": 0
+            }
+          }
+        }
+      }
+    },
+    "derived_features": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "feature_status",
+        "values"
+      ],
+      "properties": {
+        "feature_status": {
+          "$ref": "#/$defs/dataSupportStatus"
+        },
+        "values": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/namedValue"
+          }
+        }
+      }
+    },
+    "anchor_set": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "anchor_id",
+          "name",
+          "status",
+          "value",
+          "source",
+          "is_daily_proxy"
+        ],
+        "properties": {
+          "anchor_id": {
+            "type": "string",
+            "pattern": "^anc_[a-z0-9_]+_[0-9a-f]{16}$"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "$ref": "#/$defs/dataSupportStatus"
+          },
+          "value": {
+            "type": "number"
+          },
+          "source": {
+            "type": "string",
+            "minLength": 1
+          },
+          "is_daily_proxy": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "eligibility_decision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "gate_results"
+      ],
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "eligible",
+            "ineligible",
+            "indeterminate"
+          ]
+        },
+        "gate_results": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ruleEvaluation"
+          }
+        }
+      }
+    },
+    "prioritization": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "method",
+        "score_components"
+      ],
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "not_applicable",
+            "ranked",
+            "suppressed"
+          ]
+        },
+        "method": {
+          "type": "string",
+          "enum": [
+            "transparent_weighted_sum"
+          ]
+        },
+        "score_components": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/scoreComponent"
+          }
+        },
+        "total_score": {
+          "type": "number"
+        }
+      }
+    },
+    "operator_review": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "packet_summary"
+      ],
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "not_reviewed",
+            "reviewed"
+          ]
+        },
+        "packet_summary": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "outcomes": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status"
+      ],
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "not_started",
+            "tracking",
+            "complete",
+            "unsupported"
+          ]
+        },
+        "outcome_record_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/artifactRef"
+          },
+          "default": []
+        }
+      }
+    }
+  },
+  "$defs": {
+    "dataSupportStatus": {
+      "type": "string",
+      "enum": [
+        "ok",
+        "missing",
+        "unsupported",
+        "stale",
+        "low_confidence"
+      ]
+    },
+    "namedValue": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "status",
+        "value"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "$ref": "#/$defs/dataSupportStatus"
+        },
+        "value": {
+          "type": [
+            "number",
+            "string",
+            "boolean"
+          ]
+        },
+        "units": {
+          "type": "string"
+        }
+      }
+    },
+    "dataIssue": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "field",
+        "status",
+        "reason"
+      ],
+      "properties": {
+        "field": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "$ref": "#/$defs/dataSupportStatus"
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "ruleEvaluation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "rule_name",
+        "status"
+      ],
+      "properties": {
+        "rule_name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "passed",
+            "failed",
+            "skipped",
+            "unsupported"
+          ]
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "scoreComponent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "weight",
+        "value"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "weight": {
+          "type": "number",
+          "minimum": 0
+        },
+        "value": {
+          "type": "number"
+        },
+        "reason": {
+          "type": "string"
+        }
+      }
+    },
+    "artifactRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "artifact_type",
+        "artifact_id",
+        "schema_version"
+      ],
+      "properties": {
+        "artifact_type": {
+          "type": "string",
+          "enum": [
+            "packet",
+            "candidate_list",
+            "ranking",
+            "dashboard_payload",
+            "run_manifest",
+            "decision_event",
+            "outcome_record"
+          ]
+        },
+        "artifact_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "schema_version": {
+          "type": "string",
+          "pattern": "^v[0-9]+\\.[0-9]+\\.[0-9]+$"
+        }
+      }
+    }
+  }
+}

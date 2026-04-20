@@ -1,0 +1,16 @@
+{
+  "schema_version": "v1.0.0",
+  "runtime": {
+    "mode": "eod",
+    "deterministic_outputs": true,
+    "reporting_consumes_artifacts_only": true
+  },
+  "feature_flags": {
+    "allow_intraday": false,
+    "allow_automated_execution": false,
+    "allow_black_box_ml": false,
+    "allow_news_sentiment_dependency": false,
+    "allow_live_broker_core_dependency": false,
+    "allow_hidden_discretionary_overrides": false
+  }
+}

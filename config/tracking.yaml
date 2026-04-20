@@ -1,0 +1,17 @@
+{
+  "schema_version": "v1.0.0",
+  "tracking": {
+    "decision_actions": [
+      "watch",
+      "pass",
+      "plan_trade",
+      "invalidated"
+    ],
+    "outcome_horizons": [
+      "t_plus_5",
+      "t_plus_10",
+      "t_plus_20"
+    ],
+    "record_artifact_refs": true
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "schema_version": "v1.0.0",
+  "gate_ordering": {
+    "hard_eligibility_before_prioritization": true
+  },
+  "thresholds": {
+    "price": {
+      "min": 5.0,
+      "max": 1000.0
+    },
+    "avg_daily_dollar_volume_20d": {
+      "min": 25000000.0
+    },
+    "history_days": {
+      "min": 200
+    },
+    "staleness_days": {
+      "max": 0
+    }
+  },
+  "gates": [
+    {
+      "name": "price_range",
+      "type": "threshold",
+      "blocking": true
+    },
+    {
+      "name": "liquidity_floor",
+      "type": "threshold",
+      "blocking": true
+    },
+    {
+      "name": "history_minimum",
+      "type": "threshold",
+      "blocking": true
+    },
+    {
+      "name": "eod_freshness",
+      "type": "status",
+      "blocking": true
+    }
+  ]
+}

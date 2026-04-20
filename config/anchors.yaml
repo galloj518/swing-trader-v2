@@ -1,0 +1,26 @@
+{
+  "schema_version": "v1.0.0",
+  "anchors": [
+    {
+      "name": "prior_swing_low",
+      "kind": "swing_point",
+      "enabled": true,
+      "source": "daily_bars",
+      "is_daily_proxy": false
+    },
+    {
+      "name": "base_high",
+      "kind": "range_boundary",
+      "enabled": true,
+      "source": "daily_bars",
+      "is_daily_proxy": false
+    },
+    {
+      "name": "daily_proxy_avwap",
+      "kind": "avwap_proxy",
+      "enabled": true,
+      "source": "daily_bars",
+      "is_daily_proxy": true
+    }
+  ]
+}
