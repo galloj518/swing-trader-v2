@@ -57,6 +57,7 @@ def build_packet_bundle(
     excess_return_63d: float = 0.18,
     median_dollar_volume_50d: float = 55_000_000.0,
     classification_status: DataSupportStatus = DataSupportStatus.OK,
+    include_anchor: bool = True,
 ) -> dict:
     config_fingerprint = "a" * 64
     as_of_date = date(2025, 9, 18)
@@ -70,17 +71,20 @@ def build_packet_bundle(
     bars = bar_result.bars
     benchmark = normalize_daily_bars("SPY", _rows(260, base=95.0, slope=0.25)).bars
     freshness = assess_freshness(last_bar_date=bars[-1].session_date, as_of=datetime(2025, 9, 18, 17, 0, tzinfo=NY_TZ))
-    anchor = resolve_anchor(
-        symbol=symbol,
-        bars=bars,
-        definition=ManualAnchorDefinition(
-            family="manual_anchor",
-            name="manual_reference",
-            anchor_date=bars[-30].session_date,
-            anchor_value=bars[-30].close,
-        ),
-        config_fingerprint=config_fingerprint,
-    )
+    anchors = ()
+    if include_anchor:
+        anchor = resolve_anchor(
+            symbol=symbol,
+            bars=bars,
+            definition=ManualAnchorDefinition(
+                family="manual_anchor",
+                name="manual_reference",
+                anchor_date=bars[-30].session_date,
+                anchor_value=bars[-30].close,
+            ),
+            config_fingerprint=config_fingerprint,
+        )
+        anchors = (anchor,)
     candidate = ScannerCandidate(
         symbol=symbol,
         family=family,
@@ -106,7 +110,7 @@ def build_packet_bundle(
                 benchmark,
                 peer_excess_returns={21: [0.03, 0.05, 0.09], 63: [0.08, 0.11, 0.14]},
             ),
-            anchors=(anchor,),
+            anchors=anchors,
             run_id=run_id,
             as_of_date=as_of_date,
             generated_at=datetime(2025, 9, 18, 21, 15, tzinfo=UTC),

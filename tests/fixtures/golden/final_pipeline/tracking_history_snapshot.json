@@ -84,10 +84,10 @@
         "artifact_refs": [],
         "as_of_date": "2025-09-18",
         "details": {
-          "review_queue_position": 2
+          "review_queue_position": 3
         },
         "event_type": "selected_for_review",
-        "lifecycle_event_id": "life_ab2142445934a540",
+        "lifecycle_event_id": "life_caffc48a8dd7805f",
         "packet_id": "pkt_avrp_20250918_2c616c061bd44e79",
         "run_id": "run_local_20250918_3e3337a6d2837850",
         "setup_family": "avwap_reclaim",
@@ -181,10 +181,10 @@
         "artifact_refs": [],
         "as_of_date": "2025-09-18",
         "details": {
-          "review_queue_position": 1
+          "review_queue_position": 2
         },
         "event_type": "selected_for_review",
-        "lifecycle_event_id": "life_1f46f88c1e628251",
+        "lifecycle_event_id": "life_b237d98bc2b0ff2c",
         "packet_id": "pkt_base_20250918_c5e29def4b368fa2",
         "run_id": "run_local_20250918_3e3337a6d2837850",
         "setup_family": "base_breakout",
@@ -366,10 +366,10 @@
         "artifact_refs": [],
         "as_of_date": "2025-09-18",
         "details": {
-          "review_queue_position": 3
+          "review_queue_position": 4
         },
         "event_type": "selected_for_review",
-        "lifecycle_event_id": "life_3893ce8b42eded70",
+        "lifecycle_event_id": "life_d756821eb3753b5c",
         "packet_id": "pkt_cnfl_20250918_1affa3696e4c4b8f",
         "run_id": "run_local_20250918_3e3337a6d2837850",
         "setup_family": "base_breakout",
@@ -600,10 +600,10 @@
         "artifact_refs": [],
         "as_of_date": "2025-09-18",
         "details": {
-          "eligibility_status": "ineligible"
+          "eligibility_status": "eligible"
         },
-        "event_type": "ineligible",
-        "lifecycle_event_id": "life_4aa55f1adbd22ca4",
+        "event_type": "eligible",
+        "lifecycle_event_id": "life_dd91194c0618e007",
         "packet_id": "pkt_trnd_20250918_02f95006ab180059",
         "run_id": "run_local_20250918_3e3337a6d2837850",
         "setup_family": "trend_pullback",
@@ -612,6 +612,25 @@
       "record_type": "lifecycle",
       "recorded_at": "2025-09-18T21:15:00Z",
       "sequence": 31
+    },
+    {
+      "entity_id": "pkt_trnd_20250918_02f95006ab180059",
+      "payload": {
+        "artifact_refs": [],
+        "as_of_date": "2025-09-18",
+        "details": {
+          "review_queue_position": 1
+        },
+        "event_type": "selected_for_review",
+        "lifecycle_event_id": "life_50baebf5b60efb9c",
+        "packet_id": "pkt_trnd_20250918_02f95006ab180059",
+        "run_id": "run_local_20250918_3e3337a6d2837850",
+        "setup_family": "trend_pullback",
+        "symbol": "TRND"
+      },
+      "record_type": "lifecycle",
+      "recorded_at": "2025-09-18T21:15:00Z",
+      "sequence": 32
     },
     {
       "entity_id": "pkt_trnd_20250918_02f95006ab180059",
@@ -635,7 +654,7 @@
       },
       "record_type": "decision",
       "recorded_at": "2025-09-18T21:30:00Z",
-      "sequence": 32
+      "sequence": 33
     },
     {
       "entity_id": "pkt_trnd_20250918_02f95006ab180059",
@@ -655,7 +674,7 @@
       },
       "record_type": "lifecycle",
       "recorded_at": "2025-09-18T21:30:00Z",
-      "sequence": 33
+      "sequence": 34
     },
     {
       "entity_id": "pkt_trnd_20250918_02f95006ab180059",
@@ -676,7 +695,7 @@
       },
       "record_type": "outcome",
       "recorded_at": "2025-09-18T21:15:00Z",
-      "sequence": 34
+      "sequence": 35
     },
     {
       "entity_id": "pkt_trnd_20250918_02f95006ab180059",
@@ -697,7 +716,7 @@
       },
       "record_type": "outcome",
       "recorded_at": "2025-09-18T21:15:00Z",
-      "sequence": 35
+      "sequence": 36
     },
     {
       "entity_id": "pkt_trnd_20250918_02f95006ab180059",
@@ -718,7 +737,7 @@
       },
       "record_type": "outcome",
       "recorded_at": "2025-09-18T21:15:00Z",
-      "sequence": 36
+      "sequence": 37
     },
     {
       "entity_id": "pkt_trnd_20250918_02f95006ab180059",
@@ -737,7 +756,7 @@
       },
       "record_type": "lifecycle",
       "recorded_at": "2025-09-18T21:15:00Z",
-      "sequence": 37
+      "sequence": 38
     }
   ]
 }

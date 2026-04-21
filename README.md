@@ -44,6 +44,8 @@ Primary layers:
   - `avwap_reclaim`
 - Explicit split handling and dividend tagging
 - Daily-bar AVWAP proxy only, clearly labeled as a proxy
+- Trend-pullback and base-breakout packets may remain eligible without anchors when non-anchor requirements are satisfied
+- AVWAP reclaim remains explicitly anchor-sufficient by design
 - Artifact schemas for packets, candidate lists, rankings, dashboard payloads, run manifests, decision events, and outcome records
 - Static GitHub Actions orchestration for deterministic end-of-day artifact generation
 
@@ -122,12 +124,12 @@ PYTHONPATH=src python -m pytest tests/integration/test_pipeline_regression.py -q
 Notes:
 
 - The checked-in regression suite is intentionally offline and deterministic.
-- Live `yfinance` behavior is not exercised by default in CI.
+- Live `yfinance` behavior is exercised only in the separate smoke lane.
 - Golden artifacts live under [tests/fixtures/golden/final_pipeline](C:/Users/gallo/swing-trader-v2/tests/fixtures/golden/final_pipeline).
 
 ## GitHub Actions
 
-The repository currently defines two workflows:
+The repository currently defines three workflows:
 
 - [`.github/workflows/daily_eod_scan.yml`](C:/Users/gallo/swing-trader-v2/.github/workflows/daily_eod_scan.yml)
   - scheduled weekday end-of-day orchestration
@@ -138,10 +140,15 @@ The repository currently defines two workflows:
   - runs the deterministic regression suite on pushes, pull requests, and manual dispatch
   - covers packet, scanner, selector, anchors, reporting, tracking, integration, and the supporting data/market/analysis tests they depend on
   - keeps provider-network behavior out of the regression lane so artifact determinism stays testable
+- [`.github/workflows/live_provider_smoke.yml`](C:/Users/gallo/swing-trader-v2/.github/workflows/live_provider_smoke.yml)
+  - runs a small live `yfinance` contract smoke check on a tiny representative symbol set plus SPY benchmark preparation
+  - validates provider and normalization contracts without asserting unstable live prices or creating golden artifacts
+  - a green run means live fetch, normalization, benchmark preparation, freshness handling, and representative universe-input contracts all held for the sampled symbols
+  - skips are reserved for explicit external conditions such as network/provider unavailability, rate limiting, or environment/cache-path failures outside application logic
+  - is intentionally separate from the deterministic trust lane
 
 ## Open v1 Trust Blockers
 
-- Live-provider smoke coverage: not yet automated. The deterministic suite proves offline contract behavior, but there is still no committed CI lane that validates real `yfinance` responses end-to-end.
-- Selector anchor-policy status: still needs an explicit product decision. The current tests expose that some otherwise clean trend cases can become ineligible when anchor availability makes packet data sufficiency fail; that behavior is visible now, but it is not yet a closed policy decision.
-- CI coverage status: deterministic CI coverage is now broad, but it still intentionally excludes network-dependent provider smoke checks and any workflow path that requires manual decision inputs.
-- Operational trust status: the repository is implementation-grade for deterministic iteration, but not yet "production trusted" until the live-provider lane and the selector anchor-policy decision are closed explicitly.
+- Live-provider smoke status: a separate smoke lane now exists, but v1 trust still depends on that external-provider job actually passing in CI over time rather than only existing in the repository.
+- CI coverage status: deterministic CI coverage is broad and explicit, but workflows that depend on operator-supplied manual decision files are still not part of the scheduled EOD path by design.
+- Operational trust status: the major architecture ambiguity around trend-pullback anchor sufficiency is closed in code and tests. The remaining trust risk is operational and external: live provider availability and real-world CI history.

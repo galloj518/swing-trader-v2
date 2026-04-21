@@ -29,3 +29,6 @@ where = ["src"]
 [tool.pytest.ini_options]
 addopts = "--basetemp=.pytest_tmp"
 testpaths = ["tests"]
+markers = [
+  "live_provider: exercises the live yfinance provider contract and may be skipped when provider access is unavailable",
+]

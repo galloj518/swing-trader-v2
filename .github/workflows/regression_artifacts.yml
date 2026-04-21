@@ -28,14 +28,15 @@ jobs:
       # scanner, selector, anchors, reporting, tracking, and integration tests,
       # plus the supporting analysis/data/market tests those layers depend on.
       #
-      # We intentionally do not add a live-provider smoke check here because
+      # We intentionally exclude the live-provider smoke marker here because
       # yfinance network responses are non-deterministic and would weaken the
       # artifact-regression contract this workflow is meant to protect.
+      # Live provider contract coverage runs in a separate smoke workflow.
       - name: Run deterministic regression suite
         env:
           PYTHONPATH: src
         run: |
-          python -m pytest tests -q -p no:cacheprovider
+          python -m pytest tests -m "not live_provider" -q -p no:cacheprovider
 
       - name: Verify pipeline modules compile
         env:

@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from copy import deepcopy
 
+from swingtrader_v2.domain.enums import SetupFamily
 from swingtrader_v2.selector.eligibility import ELIGIBLE, INELIGIBLE, WARNING_ONLY, GATE_SEQUENCE, EligibilityInput, evaluate_eligibility
 
 from ._helpers import (
@@ -85,3 +86,83 @@ def test_eligibility_passes_clean_packet_and_tags_recent_dividend_as_warning():
         )
     )
     assert dividend_warning.outcome == WARNING_ONLY
+
+
+def test_trend_pullback_remains_eligible_without_anchors_when_non_anchor_requirements_hold():
+    bundle = build_packet_bundle(family=SetupFamily.TREND_PULLBACK, include_anchor=False)
+    classification = build_classification(bundle["candidate"])
+
+    result = evaluate_eligibility(
+        EligibilityInput(
+            packet=bundle["packet"],
+            classification=classification,
+            trade_plan=bundle["trade_plan"],
+            completeness_state=bundle["completeness"].state,
+            instrument_context=build_instrument_context(),
+        )
+    )
+
+    assert bundle["packet"]["anchor_set"] == []
+    assert bundle["completeness"].state == "partial"
+    assert result.outcome == ELIGIBLE
+    assert result.gate_results[2].gate_name == "data_sufficiency"
+    assert result.gate_results[2].outcome == "passed"
+
+
+def test_base_breakout_does_not_fail_solely_because_anchors_are_absent():
+    bundle = build_packet_bundle(family=SetupFamily.BASE_BREAKOUT, include_anchor=False)
+    classification = build_classification(bundle["candidate"])
+
+    result = evaluate_eligibility(
+        EligibilityInput(
+            packet=bundle["packet"],
+            classification=classification,
+            trade_plan=bundle["trade_plan"],
+            completeness_state=bundle["completeness"].state,
+            instrument_context=build_instrument_context(),
+        )
+    )
+
+    assert bundle["packet"]["anchor_set"] == []
+    assert result.outcome == ELIGIBLE
+    assert result.gate_results[2].outcome == "passed"
+
+
+def test_trend_pullback_with_present_anchors_remains_explicit_and_eligible():
+    bundle = build_packet_bundle(family=SetupFamily.TREND_PULLBACK, include_anchor=True)
+    classification = build_classification(bundle["candidate"])
+
+    result = evaluate_eligibility(
+        EligibilityInput(
+            packet=bundle["packet"],
+            classification=classification,
+            trade_plan=bundle["trade_plan"],
+            completeness_state=bundle["completeness"].state,
+            instrument_context=build_instrument_context(),
+        )
+    )
+
+    assert bundle["packet"]["anchor_set"]
+    assert bundle["trade_plan"].nearest_support is not None
+    assert result.outcome == ELIGIBLE
+    assert result.gate_results[6].outcome == "passed"
+
+
+def test_avwap_reclaim_still_requires_anchor_sufficiency():
+    bundle = build_packet_bundle(family=SetupFamily.AVWAP_RECLAIM, include_anchor=False)
+    classification = build_classification(bundle["candidate"])
+
+    result = evaluate_eligibility(
+        EligibilityInput(
+            packet=bundle["packet"],
+            classification=classification,
+            trade_plan=bundle["trade_plan"],
+            completeness_state=bundle["completeness"].state,
+            instrument_context=build_instrument_context(),
+        )
+    )
+
+    assert result.outcome == INELIGIBLE
+    assert result.gate_results[2].gate_name == "data_sufficiency"
+    assert result.gate_results[2].outcome == "failed"
+    assert "anchor_set_missing" in result.gate_results[2].reason_codes

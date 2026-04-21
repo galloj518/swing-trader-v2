@@ -8,7 +8,7 @@
   "method": "transparent_weighted_sum",
   "ranked_packets": [
     {
-      "packet_id": "pkt_base_20250918_c5e29def4b368fa2",
+      "packet_id": "pkt_trnd_20250918_02f95006ab180059",
       "rank": 1,
       "score_components": [
         {
@@ -17,12 +17,12 @@
           "weight": 1.0
         }
       ],
-      "setup_family": "base_breakout",
-      "symbol": "BASE",
+      "setup_family": "trend_pullback",
+      "symbol": "TRND",
       "total_score": 1.0
     },
     {
-      "packet_id": "pkt_avrp_20250918_2c616c061bd44e79",
+      "packet_id": "pkt_base_20250918_c5e29def4b368fa2",
       "rank": 2,
       "score_components": [
         {
@@ -31,12 +31,12 @@
           "weight": 1.0
         }
       ],
-      "setup_family": "avwap_reclaim",
-      "symbol": "AVRP",
+      "setup_family": "base_breakout",
+      "symbol": "BASE",
       "total_score": 0.5
     },
     {
-      "packet_id": "pkt_cnfl_20250918_1affa3696e4c4b8f",
+      "packet_id": "pkt_avrp_20250918_2c616c061bd44e79",
       "rank": 3,
       "score_components": [
         {
@@ -45,9 +45,23 @@
           "weight": 1.0
         }
       ],
+      "setup_family": "avwap_reclaim",
+      "symbol": "AVRP",
+      "total_score": 0.3333333333333333
+    },
+    {
+      "packet_id": "pkt_cnfl_20250918_1affa3696e4c4b8f",
+      "rank": 4,
+      "score_components": [
+        {
+          "name": "review_queue_inverse",
+          "value": 0.25,
+          "weight": 1.0
+        }
+      ],
       "setup_family": "base_breakout",
       "symbol": "CNFL",
-      "total_score": 0.3333333333333333
+      "total_score": 0.25
     }
   ],
   "run_id": "run_local_20250918_3e3337a6d2837850",

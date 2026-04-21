@@ -142,8 +142,71 @@ def test_clean_family_fixtures_keep_priority_logic_transparent_and_explicit(scen
 
     plan = prioritize_candidates(tuple(inputs), config=scenario_library._config.documents["setups"])
 
-    assert [item.primary_family.value for item in plan.ranked] == ["base_breakout", "avwap_reclaim"]
-    assert plan.suppressed[0].symbol == "TRND"
-    assert plan.suppressed[0].reason == "eligibility_ineligible"
+    assert [item.primary_family.value for item in plan.ranked] == [
+        "trend_pullback",
+        "base_breakout",
+        "avwap_reclaim",
+    ]
+    assert plan.suppressed == ()
     assert all("priority_band=" in " ".join(item.sort_key_explanations) for item in plan.ranked)
     assert all("family_rotation_slot=" in " ".join(item.sort_key_explanations) for item in plan.ranked)
+
+
+def test_trend_fixture_with_optional_anchor_gaps_stays_eligible_and_explicit(scenario_library):
+    snapshot = scenario_library.snapshot("clean_trend_pullback")
+    candidate = snapshot.candidates[0]
+    bundle = _assembled_bundle(snapshot, candidate, as_of_date=scenario_library.as_of_date)
+    classification = classify_candidates((candidate,), config=scenario_library._config.documents["setups"])
+
+    result = evaluate_eligibility(
+        EligibilityInput(
+            packet=bundle["packet"],
+            classification=classification,
+            trade_plan=bundle["trade_plan"],
+            completeness_state=bundle["completeness"].state,
+            instrument_context=snapshot.metadata,
+            corporate_actions=snapshot.corporate_actions,
+            config=scenario_library._config.documents["eligibility"],
+        )
+    )
+
+    assert bundle["packet"]["anchor_set"] == []
+    assert bundle["completeness"].state == "partial"
+    assert result.outcome == "eligible"
+    assert result.gate_results[2].outcome == "passed"
+
+
+def test_avwap_fixture_fails_when_required_anchor_support_is_removed(scenario_library):
+    snapshot = scenario_library.snapshot("clean_avwap_reclaim")
+    candidate = snapshot.candidates[0]
+    bundle = _assembled_bundle(snapshot, candidate, as_of_date=scenario_library.as_of_date)
+    packet = dict(bundle["packet"])
+    packet["anchor_set"] = []
+    packet["data_status"] = {
+        "overall_status": "ok",
+        "issues": [],
+    }
+    packet["derived_features"] = {
+        **packet["derived_features"],
+        "values": [
+            item for item in packet["derived_features"]["values"]
+            if not item["name"].startswith("avwap_proxy.")
+        ],
+    }
+    classification = classify_candidates((candidate,), config=scenario_library._config.documents["setups"])
+
+    result = evaluate_eligibility(
+        EligibilityInput(
+            packet=packet,
+            classification=classification,
+            trade_plan=bundle["trade_plan"],
+            completeness_state="partial",
+            instrument_context=snapshot.metadata,
+            corporate_actions=snapshot.corporate_actions,
+            config=scenario_library._config.documents["eligibility"],
+        )
+    )
+
+    assert result.outcome == INELIGIBLE
+    assert result.gate_results[2].outcome == "failed"
+    assert result.gate_results[6].outcome == "failed"

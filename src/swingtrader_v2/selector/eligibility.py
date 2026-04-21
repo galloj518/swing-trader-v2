@@ -103,6 +103,41 @@ def _feature_with_prefix(packet: dict, prefix: str) -> bool:
     return any(item["name"].startswith(prefix) for item in packet["derived_features"]["values"])
 
 
+def _resolved_family(input_data: EligibilityInput) -> SetupFamily | None:
+    family = input_data.classification.primary_family
+    if family is not None:
+        return family
+    try:
+        return SetupFamily(input_data.packet["setup"]["family"])
+    except Exception:
+        return None
+
+
+def _family_requires_anchor_sufficiency(family: SetupFamily | None) -> bool:
+    return family is SetupFamily.AVWAP_RECLAIM
+
+
+def _is_optional_anchor_issue(field: str) -> bool:
+    return field.startswith("anchor_set.") or field.startswith("derived_features.avwap_proxy.")
+
+
+def _partial_due_only_optional_anchor_gaps(input_data: EligibilityInput) -> bool:
+    family = _resolved_family(input_data)
+    if _family_requires_anchor_sufficiency(family):
+        return False
+
+    packet = input_data.packet
+    if packet["setup"]["classification_status"] != "ok":
+        return False
+    if packet["raw_snapshot"]["snapshot_status"] != "ok":
+        return False
+    if not packet["derived_features"]["values"]:
+        return False
+    if any(not _is_optional_anchor_issue(issue["field"]) for issue in packet["data_status"]["issues"]):
+        return False
+    return not packet["anchor_set"] or any(_is_optional_anchor_issue(issue["field"]) for issue in packet["data_status"]["issues"])
+
+
 def _instrument_gate(input_data: EligibilityInput) -> GateResult:
     context = input_data.instrument_context
     if context is None:
@@ -135,6 +170,7 @@ def _freshness_gate(input_data: EligibilityInput, thresholds: dict[str, float]) 
 def _data_sufficiency_gate(input_data: EligibilityInput, thresholds: dict[str, float]) -> GateResult:
     reasons: list[str] = []
     packet = input_data.packet
+    family = _resolved_family(input_data)
     if input_data.completeness_state == INVALID:
         reasons.append("packet_invalid")
     bars_available = int(packet["raw_snapshot"]["coverage"]["bars_available"])
@@ -142,11 +178,13 @@ def _data_sufficiency_gate(input_data: EligibilityInput, thresholds: dict[str, f
         reasons.append("insufficient_completed_bars")
     if not packet["derived_features"]["values"]:
         reasons.append("derived_features_missing")
-    if not packet["anchor_set"]:
+    if not packet["anchor_set"] and _family_requires_anchor_sufficiency(family):
         reasons.append("anchor_set_missing")
     if reasons:
         return GateResult("data_sufficiency", FAILED, True, tuple(reasons))
     if input_data.completeness_state == PARTIAL:
+        if _partial_due_only_optional_anchor_gaps(input_data):
+            return GateResult("data_sufficiency", PASSED, True, ())
         return GateResult("data_sufficiency", WARNING, True, ("packet_partial_but_structurally_usable",))
     return GateResult("data_sufficiency", PASSED, True, ())
 
@@ -199,7 +237,7 @@ def _classification_gate(input_data: EligibilityInput) -> GateResult:
 
 
 def _setup_specific_gate(input_data: EligibilityInput) -> GateResult:
-    family = input_data.classification.primary_family
+    family = _resolved_family(input_data)
     trade_plan = input_data.trade_plan
     packet = input_data.packet
     reasons: list[str] = []

@@ -97,9 +97,9 @@
       "symbol": "STAL"
     },
     {
-      "eligibility_status": "ineligible",
+      "eligibility_status": "eligible",
       "packet_id": "pkt_trnd_20250918_02f95006ab180059",
-      "prioritization_status": "suppressed",
+      "prioritization_status": "ranked",
       "setup_family": "trend_pullback",
       "symbol": "TRND"
     }
@@ -107,8 +107,8 @@
   "run_id": "run_local_20250918_3e3337a6d2837850",
   "schema_version": "v1.0.0",
   "summary": {
-    "eligible_count": 3,
-    "ineligible_count": 4,
-    "ranked_count": 3
+    "eligible_count": 4,
+    "ineligible_count": 3,
+    "ranked_count": 4
   }
 }

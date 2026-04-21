@@ -10,7 +10,7 @@
       "family_rank": 1,
       "packet_id": "pkt_avrp_20250918_2c616c061bd44e79",
       "priority_band": "P3_MONITOR",
-      "review_queue_position": 2,
+      "review_queue_position": 3,
       "sort_key_explanations": [
         "priority_band=P3_MONITOR",
         "family_rank=1",
@@ -20,7 +20,7 @@
         "excess_return_63d=-0.16876776104964025",
         "avg_daily_dollar_volume_20d=244100437.5",
         "symbol=AVRP",
-        "family_rotation_slot=2"
+        "family_rotation_slot=3"
       ],
       "symbol": "AVRP"
     },
@@ -34,7 +34,7 @@
       "family_rank": 1,
       "packet_id": "pkt_base_20250918_c5e29def4b368fa2",
       "priority_band": "P3_MONITOR",
-      "review_queue_position": 1,
+      "review_queue_position": 2,
       "sort_key_explanations": [
         "priority_band=P3_MONITOR",
         "family_rank=1",
@@ -44,7 +44,7 @@
         "excess_return_63d=0.19125415711181287",
         "avg_daily_dollar_volume_20d=347390750.0",
         "symbol=BASE",
-        "family_rotation_slot=1"
+        "family_rotation_slot=2"
       ],
       "symbol": "BASE"
     },
@@ -79,7 +79,7 @@
       "family_rank": 2,
       "packet_id": "pkt_cnfl_20250918_1affa3696e4c4b8f",
       "priority_band": "P3_MONITOR",
-      "review_queue_position": 3,
+      "review_queue_position": 4,
       "sort_key_explanations": [
         "priority_band=P3_MONITOR",
         "family_rank=2",
@@ -89,7 +89,7 @@
         "excess_return_63d=0.3439597315436242",
         "avg_daily_dollar_volume_20d=259733525.0",
         "symbol=CNFL",
-        "family_rotation_slot=3"
+        "family_rotation_slot=4"
       ],
       "symbol": "CNFL"
     },
@@ -121,9 +121,22 @@
         "primary_family": "trend_pullback",
         "secondary_tags": []
       },
-      "eligibility_outcome": "ineligible",
+      "eligibility_outcome": "eligible",
+      "family_rank": 1,
       "packet_id": "pkt_trnd_20250918_02f95006ab180059",
-      "suppressed_reason": "eligibility_ineligible",
+      "priority_band": "P1_ACTIONABLE_NOW",
+      "review_queue_position": 1,
+      "sort_key_explanations": [
+        "priority_band=P1_ACTIONABLE_NOW",
+        "family_rank=1",
+        "actionability_state=ready",
+        "trigger_distance=0.000000",
+        "evidence_count=6",
+        "excess_return_63d=0.07007655201342282",
+        "avg_daily_dollar_volume_20d=740362500.0",
+        "symbol=TRND",
+        "family_rotation_slot=1"
+      ],
       "symbol": "TRND"
     }
   ]
