@@ -1,2 +1,0 @@
-packet_id,run_id,as_of_date,environment,recorded_at,action,rationale,tags,symbol,setup_family,entry_date,entry_price,invalidation_level,reference_high
-pkt_trnd_20250918_02f95006ab180059,run_local_20250918_3e3337a6d2837850,2025-09-18,local,2025-09-18T21:30:00Z,plan_trade,Fixture regression tracking coverage,golden|manual,TRND,trend_pullback,2025-08-20,299.0,297.8528099379283,300.0

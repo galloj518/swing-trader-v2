@@ -2,7 +2,10 @@ name: Daily EOD Scan
 
 on:
   schedule:
-    - cron: "30 21 * * 1-5"
+    # Run after the U.S. cash session is closed and after a conservative
+    # nightly review window begins. GitHub cron is UTC-only, so 23:15 UTC
+    # keeps this firmly end-of-day in both DST and standard-time periods.
+    - cron: "15 23 * * 1-5"
   workflow_dispatch:
     inputs:
       as_of_date:
@@ -33,7 +36,7 @@ jobs:
       - name: Install runtime dependencies
         run: |
           python -m pip install --upgrade pip
-          python -m pip install yfinance
+          python -m pip install -e .
 
       - name: Run daily scan
         env:
@@ -97,4 +100,3 @@ PY
         with:
           name: swingtrader-eod-artifacts
           path: artifacts/
-

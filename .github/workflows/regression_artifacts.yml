@@ -22,12 +22,23 @@ jobs:
       - name: Install test dependencies
         run: |
           python -m pip install --upgrade pip
-          python -m pip install pytest
+          python -m pip install -e .[dev]
 
-      - name: Verify artifact and orchestration regressions
+      # This is the deterministic trust lane. It intentionally covers packet,
+      # scanner, selector, anchors, reporting, tracking, and integration tests,
+      # plus the supporting analysis/data/market tests those layers depend on.
+      #
+      # We intentionally do not add a live-provider smoke check here because
+      # yfinance network responses are non-deterministic and would weaken the
+      # artifact-regression contract this workflow is meant to protect.
+      - name: Run deterministic regression suite
         env:
           PYTHONPATH: src
         run: |
-          python -m pytest tests/packet tests/selector tests/reporting tests/tracking -q -p no:cacheprovider
-          python -m compileall src/swingtrader_v2/pipelines
+          python -m pytest tests -q -p no:cacheprovider
 
+      - name: Verify pipeline modules compile
+        env:
+          PYTHONPATH: src
+        run: |
+          python -m compileall src/swingtrader_v2/pipelines
